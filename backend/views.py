@@ -275,7 +275,10 @@ def jobPostedBy(request):
                     appData = User.objects.get(id=appUser)
                     userNameOfApplicants.append(appData.userName)
                 except:
-                    print('Null User ID')
+                    return JsonResponse({
+                        'success': False,
+                        'error': 'No Job by this ID',
+                        })
 
         jobObjDict = {
             'id' : jobs.id,
