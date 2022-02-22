@@ -27,6 +27,11 @@ set-executionpolicy remotesigned
 pip freeze > requirements.txt
 ```
 
+- To install a requirements.txt file in your environment
+```
+pip install -r requirements.txt
+```
+
 - To close the environment
 ```
 deactivate
