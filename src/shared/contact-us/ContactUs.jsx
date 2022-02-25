@@ -1,9 +1,9 @@
 import React from 'react';
 import './ContactUs.scss';
 
-const ContactUs = ({innerRef}) => {
+const ContactUs = (props) => {
   return (
-    <div  ref = {innerRef} className='contact-us'>ContactUs</div>
+    <div className='contact-us'>ContactUs</div>
   )
 }
 

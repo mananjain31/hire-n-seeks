@@ -1,9 +1,9 @@
 import React from 'react'
 import './ExploreJobs.scss'
 
-const ExploreJobs = ({innerRef}) => {
+const ExploreJobs = () => {
   return (
-    <div ref = {innerRef} className='explore-jobs'>ExploreJobs</div>
+    <div className='explore-jobs'>ExploreJobs</div>
   )
 }
 

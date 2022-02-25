@@ -1,4 +1,7 @@
+@use '../../globals/landing-hero-bg.scss' as *;
+
 .landing-hero {
   height: 100vh;
-  background-color: red;
+  background-color: $landing-hero-bg-color; 
+  background-image: $landing-hero-bg-image;
 }
