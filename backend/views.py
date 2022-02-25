@@ -216,7 +216,7 @@ def postJob(request):
 
     if currUserID.is_recruiter == 0:
         return JsonResponse({
-            "message" : "User Cannot Post Jobs"
+            "message": "User Cannot Post Jobs"
         })
     
     else:
@@ -277,7 +277,7 @@ def jobPostedBy(request):
                 except:
                     return JsonResponse({
                         'success': False,
-                        'error': 'No Job by this ID',
+                        'error': 'No Job by the ID',
                         })
 
         jobObjDict = {
@@ -304,7 +304,7 @@ def apply(request, jobPostID):
 
     if currUserID.is_recruiter == 1:
         return JsonResponse({
-            "message" : "Recruiter Cannot Apply to Jobs"
+            "message": "Recruiter Cannot Apply to Jobs"
         })
     
     else:
@@ -352,6 +352,7 @@ def apply(request, jobPostID):
                 'success': True,
                 'user applied': currUser})
 
+
 @csrf_exempt
 def userAppliedJobs(request):
     currUser = request.session.get('user')
@@ -361,7 +362,7 @@ def userAppliedJobs(request):
         
     if len(jobsID) == 0:
         return JsonResponse({
-            "success" : False,
+            "success": False,
             "error": "No jobs Applied"
     })
         
@@ -375,7 +376,7 @@ def userAppliedJobs(request):
                 jobData = postedJob.objects.get(id=jobsApplied)
 
                 jobObjDict = {
-                    'id' : jobData.id,
+                    'id': jobData.id,
                     'title': jobData.title,
                     'jobPos': jobData.jobPos,
                     'desc': jobData.desc,
@@ -503,11 +504,6 @@ def updateData(request):
         userData.save()
 
         # logouts()
-
-        return JsonResponse({
-            'success': True,
-        })
-
         # if User.objects.filter(userName=upData['userName']).exists():
         #     print("Username Taken")
         #     return JsonResponse({
@@ -521,13 +517,15 @@ def updateData(request):
         #         "error": "User name Taken"
         #     })
 
+        return JsonResponse({
+            'success': True,
+        })
+
 
 @csrf_exempt
 def jobs(request):
     joblist = list(postedJob.objects.values())
     return JsonResponse(joblist, safe=False)
-
-
 
 
 @csrf_exempt
@@ -552,7 +550,7 @@ def job(request, jobPostID):
         })
     except:
         return JsonResponse({
-            "success" : False,
-            "error" : "Invalid Job Id"
+            "success": False,
+            "error": "Invalid Job URL"
         })
         
