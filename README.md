@@ -1,4 +1,22 @@
-# Using Virtual Enviroment in Python
+# Installation Guide
+
+<br/>
+
+## Install Node Modules
+
+<br/>
+
+Use the following command to install all the required pacakages for react app
+
+```
+npm install
+```
+
+<br/>
+
+## Using Virtual Enviroment in Python
+
+<br/>
 
  - First intall virtualenv in your main environment
 ```
