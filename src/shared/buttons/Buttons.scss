@@ -1,0 +1,12 @@
+@use '../../globals/global-styles.scss' as *;
+
+.login-signup-button {
+  
+  &.MuiButton-root, &.MuiButton-root:hover {
+    color: $purple;
+    font-weight: 600;
+    border-color: $purple;
+    padding: .1rem .5rem;
+    border-width: 5px;
+  }
+}
