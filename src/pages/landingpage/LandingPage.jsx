@@ -49,7 +49,9 @@ export const LandingPage = () => {
   return (
     <>
     <div className='landing-page' onScroll={handlePageScroll}>      
+
       <Navbar navData={navData}/>
+
       <div ref={hero} id='hero'>
         <LandingHero/>
       </div>

@@ -1,7 +1,9 @@
+@use '../../globals/global-styles.scss' as *;
 @use '../../globals/explore-jobs-bg.scss' as *;
 
 .explore-jobs {
   height: 100vh;
   background-color: $explore-bg-color;
   background-image: $explore-bg-image;
+  padding-top: $landing-pt;
 }

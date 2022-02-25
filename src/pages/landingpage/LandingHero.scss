@@ -1,7 +1,9 @@
 @use '../../globals/landing-hero-bg.scss' as *;
+@use '../../globals/global-styles.scss' as *;
 
 .landing-hero {
   height: 100vh;
   background-color: $landing-hero-bg-color; 
   background-image: $landing-hero-bg-image;
+  padding-top: $landing-pt;
 }

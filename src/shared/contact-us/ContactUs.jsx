@@ -3,7 +3,7 @@ import './ContactUs.scss';
 
 const ContactUs = (props) => {
   return (
-    <div className='contact-us'>ContactUs</div>
+    <section className='contact-us'>ContactUs</section>
   )
 }
 
