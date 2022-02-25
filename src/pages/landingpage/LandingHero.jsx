@@ -5,7 +5,7 @@ import bloggingSVG from '../../assets/blogging.svg'
 const LandingHero = () => {
   return (
     <section className='landing-hero'>
-      <div className='hero-section-1 flex flex-row'>
+      {/* <div className='hero-section-1 flex flex-row'>
         <div className='hero-svg basis-1/2'>
           <img className='' src={bloggingSVG} />
         </div>
@@ -19,7 +19,8 @@ const LandingHero = () => {
         </div>
       </div>
       <div className='hero-section-2'>
-      </div>
+      </div> */}
+      Landing Page
     </section>
   )
 }
