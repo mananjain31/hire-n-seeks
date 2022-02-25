@@ -1,3 +1,1 @@
-export {Home} from './Home'
-export {ContactUs} from './ContactUs'
-export {About} from './About'
+export {LandingPage} from './landingpage/LandingPage';

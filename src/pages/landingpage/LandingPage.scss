@@ -1,0 +1,12 @@
+.landing-page {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  
+  & > *{
+    scroll-snap-align: start;
+  }
+}
