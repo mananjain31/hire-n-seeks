@@ -9,3 +9,23 @@ $desktop-x-padding : 2rem;
 
 // landing page
 $landing-pt : 7rem;
+
+// breakpoints
+$xs : 0px;
+$sm : 600px;
+$md : 900px;
+$lg : 1200px;
+$xl : 1536px;
+
+
+
+.desktop-only {
+  @media screen and (max-width : $sm) {
+    display: none !important;
+  }
+}
+.mobile-only {
+  @media screen and (min-width : $sm) {
+    display: none !important;
+  }
+}

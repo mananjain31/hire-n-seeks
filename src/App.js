@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { Routes, Route, Link} from 'react-router-dom';
 import {LandingPage} from './pages'
-
+import './globals/global-styles.scss'
 
 function App() {
   // console.log(LandingPage);

@@ -1,6 +1,6 @@
 import React from 'react'
 import './Navbar.scss'
-import { Icon } from '@mui/material';
+import { Icon, IconButton } from '@mui/material';
 import {LoginSignupButton} from '../../shared/buttons/Buttons';
 
 const Navbar = ({navData}) => {
@@ -20,9 +20,20 @@ const Navbar = ({navData}) => {
 
   return (
     <nav className='navbar'>
+
       <Icon >screen_search_desktop</Icon>
-      <ul className='navlinks'>{renderNavlinks()}</ul>
-      <LoginSignupButton>New User/Login</LoginSignupButton>
+
+      <ul className='navlinks desktop-only'>
+        {renderNavlinks()}
+        <li>
+          <LoginSignupButton>New User/Login</LoginSignupButton>
+        </li>
+      </ul>
+
+      <IconButton>
+        <Icon className="mobile-only">menu</Icon>
+      </IconButton>
+
     </nav>
   )
 }
