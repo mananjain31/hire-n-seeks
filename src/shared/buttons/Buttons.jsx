@@ -8,3 +8,7 @@ export const LoginSignupButton = (props) => {
     <Button {...props} variant="outlined" className="login-signup-button"/>
   )
 }
+
+// export const useLoginSignupButton = props1=> {
+//   return props2=><LoginSignupButton {...props1} {...props2}/>
+// }
