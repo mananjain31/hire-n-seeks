@@ -3,6 +3,7 @@ import './Navbar.scss'
 import { Divider, Drawer, Icon, IconButton, List, ListItem, ListItemText } from '@mui/material';
 import {LoginSignupButton} from '../../shared/buttons/Buttons';
 import { Box } from '@mui/system';
+import bloggingSVG from '../../assets/blogging.svg'
 
 const Navbar = ({navData}) => {
 
@@ -46,7 +47,8 @@ const Navbar = ({navData}) => {
   return (
     <nav className='navbar'>
 
-      <Icon >screen_search_desktop</Icon>
+      <img className='nav-logo' src={bloggingSVG} />
+
       <ul className='navlinks desktop-only'>
         {renderNavlinks()}
         <li>

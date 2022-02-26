@@ -1,26 +1,26 @@
 import React from 'react'
 import './LandingHero.scss'
 import bloggingSVG from '../../assets/blogging.svg'
+import { PrimaryButton } from '../../shared/buttons/Buttons'
+import {ArrowRightAlt} from '@mui/icons-material'
 
 const LandingHero = () => {
   return (
-    <section className='landing-hero'>
-      {/* <div className='hero-section-1 flex flex-row'>
-        <div className='hero-svg basis-1/2'>
+    <section className='landing-hero landing-section'>
+
+      <div className='hero'>
+        <div className='hero-left'>
           <img className='' src={bloggingSVG} />
         </div>
-        <div className='hero-heading text-white font-extrabold basis-1/2'>
-          <div className='hire-n-seeks text-9xl'>
-            <h1 className='font-black'>HIRE N SEEKS</h1>
-          </div>
-          <div className='career-jobs text-5xl'>
-            <h2 className='font-black'>CAREER STARTER JOBS</h2>
-          </div>
+        <div className='hero-right'>
+            <h1>HIRE N SEEKS</h1>
+            <h2>CAREER STARTER JOBS</h2>
         </div>
       </div>
-      <div className='hero-section-2'>
-      </div> */}
-      Landing Page
+
+      <div className='join-now-btn'>
+        <PrimaryButton bg="black" color="white">Join Now <ArrowRightAlt/></PrimaryButton>
+      </div>
     </section>
   )
 }

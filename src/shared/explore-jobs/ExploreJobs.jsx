@@ -3,7 +3,7 @@ import './ExploreJobs.scss'
 
 const ExploreJobs = () => {
   return (
-    <section className='explore-jobs'>ExploreJobs</section>
+    <section className='explore-jobs landing-section'>ExploreJobs</section>
   )
 }
 

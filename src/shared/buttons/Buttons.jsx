@@ -9,6 +9,16 @@ export const LoginSignupButton = (props) => {
   )
 }
 
+
+export const PrimaryButton = (props) => {
+  return (
+    <span style={{background : props.bg || 'inherit', color : props.color || 'inherit'}}>
+      <button {...props} className="primary-button"/>
+    </span>
+  )
+}
+
+
 // export const useLoginSignupButton = props1=> {
 //   return props2=><LoginSignupButton {...props1} {...props2}/>
-// }
+// 
