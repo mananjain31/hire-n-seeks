@@ -1,6 +1,7 @@
 @use '../../globals/global-styles.scss' as *;
 
 $navbar-top : 1.5rem;
+$navbar-p-y : .3rem;
 
 .navbar {
   position: sticky;
@@ -11,12 +12,17 @@ $navbar-top : 1.5rem;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: .3rem $desktop-x-padding;
-
-
+  padding: $navbar-p-y $desktop-x-padding;
+  
+  
   @media screen and (max-width : $sm) {
+    padding: .3rem $mobile-x-padding;
     background: black;
     color: white;
+  }
+
+  .nav-logo {
+    width: 4rem;
   }
 
   .navlinks {
