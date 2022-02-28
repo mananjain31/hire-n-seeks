@@ -74,7 +74,34 @@ def signup(request):
             "error": "Unknown error"
         })
 
-
+def userData(request):
+    
+    if request.method == 'GET':
+        currUser = request.session.get('user')
+        userData = User.objects.get(userName=currUser)
+        # return userData
+        return JsonResponse({
+            "success": True,
+            "user": {
+                'userName': userData.userName,
+                'firstName': userData.firstName,
+                'lastName': userData.lastName,
+                'email': userData.email,
+                'dob': userData.dob,
+                'contactNumber': userData.contactNumber,
+                'address': userData.address,
+                'city': userData.city,
+                'state': userData.state,
+                'country': userData.country,
+                'bio': userData.bio,
+                'skills': userData.skills,
+                'projects': userData.projects,
+                'linkGithub': userData.linkGithub,
+                'linkLinkedIn': userData.linkLinkedIn,
+                'linkExtra': userData.linkExtra,
+                'is_recruiter': userData.is_recruiter,
+            }
+        })
 @csrf_exempt
 def login(request):
     if request.method == 'POST':
