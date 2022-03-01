@@ -29,13 +29,13 @@ def signup(request):
         pass_word = signInData["password"]
 
         if User.objects.filter(userName=user_name).exists():
-            print("Username Taken")
+            # print("Username Taken")
             return JsonResponse({"success": False, "error": "User name Taken"})
         elif User.objects.filter(email=e_Mail).exists():
-            print("Email already Exist")
+            # print("Email already Exist")
             return JsonResponse({"success": False, "error": "Email already Exist"})
         elif User.objects.filter(contactNumber=contact).exists():
-            print("Mobile already Exist")
+            # print("Mobile already Exist")
             return JsonResponse({"success": False, "error": "Mobile already Exist"})
 
         else:
@@ -59,10 +59,10 @@ def signup(request):
                 "Contact": contact,
                 "success": True,
             }
-            print("Data Saved")
+            # print("Data Saved")
             return JsonResponse(userInfo)
     else:
-        print("Error")
+        # print("Error")
         return JsonResponse({"success": False, "error": "Unknown error"})
 
 
@@ -70,26 +70,25 @@ def userData(user):
 
     userData = User.objects.get(userName=user)
     # return userData
-    return{
-                "userName": userData.userName,
-                "firstName": userData.firstName,
-                "lastName": userData.lastName,
-                "email": userData.email,
-                "dob": userData.dob,
-                "contactNumber": userData.contactNumber,
-                "address": userData.address,
-                "city": userData.city,
-                "state": userData.state,
-                "country": userData.country,
-                "bio": userData.bio,
-                "skills": userData.skills,
-                "projects": userData.projects,
-                "linkGithub": userData.linkGithub,
-                "linkLinkedIn": userData.linkLinkedIn,
-                "linkExtra": userData.linkExtra,
-                "recruiter": userData.is_recruiter,
-            
-        }
+    return {
+        "userName": userData.userName,
+        "firstName": userData.firstName,
+        "lastName": userData.lastName,
+        "email": userData.email,
+        "dob": userData.dob,
+        "contactNumber": userData.contactNumber,
+        "address": userData.address,
+        "city": userData.city,
+        "state": userData.state,
+        "country": userData.country,
+        "bio": userData.bio,
+        "skills": userData.skills,
+        "projects": userData.projects,
+        "linkGithub": userData.linkGithub,
+        "linkLinkedIn": userData.linkLinkedIn,
+        "linkExtra": userData.linkExtra,
+        "is_recruiter": userData.is_recruiter,
+    }
 
 
 @csrf_exempt
@@ -105,10 +104,7 @@ def login(request):
             if user is not None:
                 request.session["user"] = loginData["userName"]
                 return JsonResponse(
-                    {
-                        "success": True,
-                        "userData": userData(request.session.get("user"))
-                    }
+                    {"success": True, "userData": userData(request.session.get("user"))}
                 )
             else:
                 return JsonResponse(
@@ -122,7 +118,7 @@ def login(request):
             except:
                 return JsonResponse({"Error": "No User Found"})
 
-            print(userInfoByEmail.userName)
+            # print(userInfoByEmail.userName)
             user = authenticate(
                 userName=userInfoByEmail.userName, password=loginData["password"]
             )
@@ -130,10 +126,7 @@ def login(request):
             if user is not None:
                 request.session["user"] = userInfoByEmail.userName
                 return JsonResponse(
-                    {
-                        "success": True,
-                        "userData": userData(request.session.get("user"))
-                    }
+                    {"success": True, "userData": userData(request.session.get("user"))}
                 )
             else:
                 return JsonResponse(
@@ -153,10 +146,7 @@ def login(request):
             if user is not None:
                 request.session["user"] = userInfoByCont.userName
                 return JsonResponse(
-                    {
-                        "success": True,
-                        "userData": userData(request.session.get("user"))
-                    }
+                    {"success": True, "userData": userData(request.session.get("user"))}
                 )
             else:
                 return JsonResponse(
@@ -180,35 +170,16 @@ def logouts(request):
 @csrf_exempt
 def userProfile(request, userID):
     try:
-        print(userID)
-        userInformation = User.objects.get(userName=userID)
+        # print(userID)
 
         return JsonResponse(
             {
                 "success": True,
-                "data": {
-                    "userName": userInformation.userName,
-                    "firstName": userInformation.firstName,
-                    "lastName": userInformation.lastName,
-                    "email": userInformation.email,
-                    "dob": userInformation.dob,
-                    "contactNumber": userInformation.contactNumber,
-                    "address": userInformation.address,
-                    "city": userInformation.city,
-                    "state": userInformation.state,
-                    "country": userInformation.country,
-                    "bio": userInformation.bio,
-                    "skills": userInformation.skills,
-                    "projects": userInformation.projects,
-                    "linkGithub": userInformation.linkGithub,
-                    "linkLinkedIn": userInformation.linkLinkedIn,
-                    "linkExtra": userInformation.linkExtra,
-                    "is_recruiter": userInformation.is_recruiter,
-                },
+                "data": userData(userID),
             }
         )
     except Exception as e:
-        print(e)
+        # print(e)
         return JsonResponse({"success": False, "error": "User not found"})
 
 
@@ -244,7 +215,7 @@ def postJob(request):
                 location=jobData["location"],
             )
             job.save()
-            print(jobData["reqSkill"])
+            # print(jobData["reqSkill"])
             return JsonResponse(
                 {
                     "success": True,
@@ -344,7 +315,6 @@ def apply(request, jobPostID):
             appliString = " "
 
             finalAppli = appliString.join(appliList)
-            print(finalAppli)
 
             postedJobData.appliedPeople = finalAppli
             postedJobData.save()
@@ -359,7 +329,6 @@ def apply(request, jobPostID):
             userAppliString = " "
 
             FinaluserApplJob = userAppliString.join(jobsAppliedList)
-            print(FinaluserApplJob)
 
             currUserID.appliedJobsTo = FinaluserApplJob
             currUserID.save()
@@ -400,9 +369,10 @@ def userAppliedJobs(request):
 
                 jobsAppliedList.append(jobObjDict)
             except:
-                print("Null Job ID")
+                # print("Null Job ID")
+                pass
 
-        print(jobsAppliedList)
+        # print(jobsAppliedList)
 
         return JsonResponse({"success": True, "Jobs": jobsAppliedList})
 
@@ -425,7 +395,7 @@ def cancelJob(request, jobPostID):
         appliString = " "
 
         finalAppli = appliString.join(appliList)
-        print(finalAppli)
+        # print(finalAppli)
 
         postedJobData.appliedPeople = finalAppli
         postedJobData.save()
@@ -440,7 +410,7 @@ def cancelJob(request, jobPostID):
         userAppliString = " "
 
         FinaluserApplJob = userAppliString.join(jobsAppliedList)
-        print(FinaluserApplJob)
+        # print(FinaluserApplJob)
 
         currUserID.appliedJobsTo = FinaluserApplJob
         currUserID.save()
