@@ -2,8 +2,36 @@
 @use '../../globals/explore-jobs-bg.scss' as *;
 
 .explore-jobs {
-  min-height: 100vh;
+  // min-height: 100vh;
   background-color: $explore-bg-color;
   background-image: $explore-bg-image;
-  padding-top: $landing-pt;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  
+  .explore-jobs-headline {
+    display: none;
+  }
+  .explore-btn {
+    // background-color: black;
+    // color : white;
+    // padding: .2rem;
+    margin-left: auto;
+  }
+
+}
+
+@media screen and (max-width: $md) {
+  .explore-jobs {
+    gap: .3rem;
+     
+    .explore-jobs-headline {
+      display: block;
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+    .explore-btn {
+      margin: auto;
+    } 
+  }
 }

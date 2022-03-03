@@ -1,0 +1,47 @@
+@use '../../globals/global-styles.scss' as *;
+
+.job-card {
+  display: flex;
+  width: max-content;
+  height: min-content;
+  flex: 1;
+
+  & > * {
+    padding: 0 2rem;
+    margin: 2rem 0;
+  }
+
+  .card-left {
+    text-align: right;
+    font-size: 2rem;
+    font-weight: bold;
+    border-right: 2px solid black;
+    border-color: initial;
+  }
+  .card-right {
+    text-align: left;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: $md) {
+  .job-card {
+    flex-direction: column;
+  
+    & > * {
+      padding: .5rem 0;
+      margin: 0 .5rem;
+    }
+  
+    .card-left {
+      text-align: center;
+      font-size: 1rem;
+      border-right: none;
+      border-bottom: 2px solid black;
+      border-color: initial;
+    }
+    .card-right {
+      font-size: .8rem;
+    }
+  }
+}

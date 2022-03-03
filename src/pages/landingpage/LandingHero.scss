@@ -2,7 +2,7 @@
 @use '../../globals/global-styles.scss' as *;
 
 .landing-hero {
-  min-height: 100vh;
+  // min-height: 100vh;
   background-color: $landing-hero-bg-color; 
   background-image: $landing-hero-bg-image;
   font-family: 'Hero Light', sans-serif;
@@ -40,7 +40,7 @@
   .join-now-btn {
     // background-color: black;
     // color : white;
-    padding: .2rem;
+    // padding: .2rem;
     margin-left: auto;
   }
 }
