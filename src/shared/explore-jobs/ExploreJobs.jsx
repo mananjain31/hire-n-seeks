@@ -9,7 +9,7 @@ const ExploreJobs = () => {
   const cardsProps = [{}, {},{}, {},{}, {}];
   return (
     <section className='explore-jobs page-section'>
-      <h2 className='explore-jobs-headline'>Introducing <br/> Fresher Jobs</h2>
+      <h2 className='page-section-headline'>Introducing <br/> Fresher Jobs</h2>
       <CardSlider CardComponent = {JobCard} cardsProps={cardsProps} />
       
       <div className='explore-btn'>
