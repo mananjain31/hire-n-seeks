@@ -33,6 +33,13 @@ $xl : 1536px;
 
 
 .page-section{
+  
+  .page-section-headline {
+    display: block;
+    font-size: 1.7rem;
+    font-weight: 700;
+  }
+
   min-height: 100vh;
   padding: $landing-pt $desktop-x-padding;
     @media screen and (max-width : $sm) {
