@@ -4,7 +4,7 @@ import './CardSlider.scss'
 
 const CardSlider = ({CardComponent, cardsProps, ...props}) => {
   const sliderRef = React.useRef();
-  const scrollWidth = 600;
+  const scrollWidth = 500;
 
   const scrollLeft = () => {
     const { scrollLeft } = sliderRef?.current;

@@ -1,4 +1,4 @@
-import { ArrowRightAlt } from '@mui/icons-material';
+import { CalendarToday, WorkOutline, LocationOn, AccessTime } from '@mui/icons-material';
 import React from 'react'
 
 import './JobCard.scss';
@@ -14,10 +14,10 @@ const JobCard = () => {
       
 
       <div className="card-right">
-        <ArrowRightAlt/> <span>Posted on 2021-11-21</span> <br/>
-        <ArrowRightAlt/> <span>Internship</span> <br/>
-        <ArrowRightAlt/> <span>Indore(M.P.), India</span> <br/>
-        <ArrowRightAlt/> <span>January 2022 - December 2022</span> <br/>
+        <CalendarToday/> <span>Posted on 2021-11-21</span> <br/>
+        <WorkOutline/> <span>Internship</span> <br/>
+        <LocationOn/> <span>Indore(M.P.), India</span> <br/>
+        <AccessTime/> <span>January 2022 - December 2022</span> <br/>
       </div>
 
     </div>
