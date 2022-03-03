@@ -30,3 +30,12 @@ $xl : 1536px;
     display: none !important;
   }
 }
+
+
+.page-section{
+  min-height: 100vh;
+  padding: $landing-pt $desktop-x-padding;
+    @media screen and (max-width : $sm) {
+      padding: $landing-pt $mobile-x-padding;
+    }
+}

@@ -6,7 +6,7 @@ import {ArrowRightAlt} from '@mui/icons-material'
 
 const LandingHero = () => {
   return (
-    <section className='landing-hero landing-section'>
+    <section className='landing-hero page-section'>
 
       <div className='hero'>
         <div className='hero-left'>
