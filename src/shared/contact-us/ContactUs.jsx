@@ -9,7 +9,10 @@ const ContactUs = (props) => {
 
       <div className="contact-us-body">
         <h2>Contact Us</h2>
-        
+
+        <div className='svg-image mobile-only'>
+          <img  src={SocialMediaSVG} alt="contact us image" />
+        </div>        
 
         <div className="contact-us-content">
           <h3>Address</h3>
@@ -19,13 +22,14 @@ const ContactUs = (props) => {
             mananjain31jan@gmail.com <br/>
             tiwarividhya2001@gmail.com <br/>
             jashsharma619@gmail.com <br/>
+            sumitpathak861@gmail.com <br/>
           </p>
           <h3>Contact Number</h3>
           <p>+91 7000784085</p>
         </div>
       </div>
 
-      <div className='svg-image'>
+      <div className='svg-image desktop-only'>
         <img  src={SocialMediaSVG} alt="contact us image" />
       </div>
 
