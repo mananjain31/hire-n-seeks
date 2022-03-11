@@ -1,0 +1,54 @@
+@use '../../globals/global-styles.scss' as *;
+
+$navbar-top : 1.5rem;
+$navbar-p-y : .3rem;
+
+.navbar {
+  position: sticky;
+  top: $navbar-top;
+  background-color: $light-gray;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: $navbar-p-y $desktop-x-padding;
+  
+  
+  @media screen and (max-width : $sm) {
+    padding: .3rem $mobile-x-padding;
+    background: black;
+    color: white;
+  }
+
+  .nav-logo {
+    width: 4rem;
+  }
+
+  .navlinks {
+    flex: 1;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    // background-color: aqua;
+
+    a {
+      transition: all .1s ease;
+      font-weight: 500;
+      color: inherit;
+    }
+    :not(.active){
+      color: $light-gray-2;
+    }
+    .active {
+      color: $black;
+    }
+  }
+}
+
+.drawerlinks {
+  margin: $navbar-top .5rem 0 .5rem;
+}

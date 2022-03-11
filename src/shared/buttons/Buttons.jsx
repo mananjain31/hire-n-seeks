@@ -2,10 +2,15 @@ import React from 'react'
 import {Button} from '@mui/material'
 
 import './Buttons.scss'
+import { useNavigate } from 'react-router-dom'
 
 export const LoginSignupButton = (props) => {
+  const navigate = useNavigate();
+  const navigateToLoginPage = () => {
+    navigate('/login');
+  }
   return (
-    <Button {...props} variant="outlined" className="login-signup-button"/>
+    <Button {...props} variant="outlined" className="login-signup-button" onClick={navigateToLoginPage}/>
   )
 }
 
