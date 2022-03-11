@@ -6,13 +6,16 @@ $navbar-p-y : .3rem;
 .navbar {
   position: sticky;
   top: $navbar-top;
-  background-color: $light-gray;
+  // background-color: $light-gray;
+  background-color: rgba(0, 0, 0, 0.699);
+
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: $navbar-p-y $desktop-x-padding;
+  z-index: 10;
   
   
   @media screen and (max-width : $sm) {
@@ -41,10 +44,10 @@ $navbar-p-y : .3rem;
       color: inherit;
     }
     :not(.active){
-      color: $light-gray-2;
+      color: $purple;
     }
     .active {
-      color: $black;
+      color: white;
     }
   }
 }
