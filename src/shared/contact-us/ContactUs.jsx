@@ -39,41 +39,7 @@ const ContactUs = (props) => {
             <img src={FacebookIcon} alt="facebook icon" />
             <img src={TwitterIcon} alt="twitter icon" />
             <img src={PhoneIcon} alt="phone icon" />
-          </div>
-
-          {/* <div class="team-member">
-            <p>Aditya Pathak</p>
-            <div class="contact-icons-1">
-              <img src={GmailIcon} alt="gmail icon"/> 
-              <img src={InstagramIcon} alt="instagram icon"/>
-              <img src={LinkedinIcon} alt="linkedin icon"/>
-              <img src={FacebookIcon} alt="facebook icon"/> 
-              <img src={TwitterIcon} alt="teitter icon"/> 
-              <img src={PhoneIcon} alt="phone icon"/> 
-            </div>
-          </div>
-          <div class="team-member">
-            <p>Jash Sharma</p>
-            <div class="contact-icons-1">
-              <img src={GmailIcon} alt="gmail icon"/> 
-              <img src={InstagramIcon} alt="instagram icon"/>
-              <img src={LinkedinIcon} alt="linkedin icon"/>
-              <img src={FacebookIcon} alt="facebook icon"/> 
-              <img src={TwitterIcon} alt="teitter icon"/> 
-              <img src={PhoneIcon} alt="phone icon"/> 
-            </div>
-          </div>
-          <div class="team-member">
-            <p>Vindhya Tiwari</p>
-            <div class="contact-icons-1">
-              <img src={GmailIcon} alt="gmail icon"/> 
-              <img src={InstagramIcon} alt="instagram icon"/>
-              <img src={LinkedinIcon} alt="linkedin icon"/>
-              <img src={FacebookIcon} alt="facebook icon"/> 
-              <img src={TwitterIcon} alt="teitter icon"/> 
-              <img src={PhoneIcon} alt="phone icon"/> 
-            </div>
-          </div> */}
+          </div>          
         </div>
       </div>
 
