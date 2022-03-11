@@ -15,12 +15,12 @@ const LandingHero = () => {
         <div className='hero-right'>
             <h1>HIRE N SEEKS</h1>
             <h2>CAREER STARTER JOBS</h2>
+            <div className='join-now-btn'>
+              <PrimaryButton bg="black" color="white">Join Now <ArrowRightAlt/></PrimaryButton>
+            </div>
         </div>
       </div>
 
-      <div className='join-now-btn'>
-        <PrimaryButton bg="black" color="white">Join Now <ArrowRightAlt/></PrimaryButton>
-      </div>
     </section>
   )
 }

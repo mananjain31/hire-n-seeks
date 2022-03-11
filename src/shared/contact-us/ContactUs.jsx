@@ -1,7 +1,7 @@
 import React from 'react';
 import './ContactUs.scss';
 // import SocialMediaSVG from '../../assets/social-media.svg'
-import ContactImage from '../../assets/contact_us.svg'
+import ContactImage from '../../assets/profile_data.svg'
 import GmailIcon from '../../assets/icons-gmail.png'
 import FacebookIcon from '../../assets/icons-facebook.png'
 import TwitterIcon from '../../assets/icons-twitter.png'
