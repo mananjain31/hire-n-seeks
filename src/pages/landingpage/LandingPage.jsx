@@ -3,7 +3,7 @@ import React from 'react'
 import ContactUs from '../../shared/contact-us/ContactUs'
 import ExploreJobs from '../../shared/explore-jobs/ExploreJobs'
 import LandingHero from './LandingHero'
-import Navbar from './Navbar'
+import LandingNavbar from './LandingNavbar'
 import './LandingPage.scss'
 
 export const LandingPage = () => {
@@ -50,7 +50,7 @@ export const LandingPage = () => {
     <>
     <div className='landing-page' onScroll={handlePageScroll}>      
 
-      <Navbar navData={navData}/>
+      <LandingNavbar navData={navData}/>
 
       <div ref={hero} id='hero'>
         <LandingHero/>
