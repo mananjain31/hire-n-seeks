@@ -13,23 +13,30 @@
     h2 {
       text-align: left;
       font-weight: 700;
-      font-size: 3em;
+      font-size: 2em;
     }
     .contact-us-content {
       text-align: left;
       display: flex;
       flex-direction: column;
-      gap: 1em;
+      gap: .5em;
       h3 {
-        font-size: 2em;
+        font-size: 1.3em;
       }
       p{
-        font-size: 1.5em;
+        font-size: 0.8em;
+      }
+      .contact-icons-1{
+        display: flex;
+        img{
+          width:18px;
+        }
+
       }
     }
   }
   .svg-image {
-    width: 50%;
+    width: 35%;
     display: grid;
     place-items: center;
   }
