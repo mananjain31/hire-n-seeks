@@ -4,8 +4,15 @@ $navbar-top : 1.5rem;
 $navbar-p-y : .3rem;
 
 .navbar {
-  position: sticky;
+  position: fixed;
   top: $navbar-top;
+  width: 100%;
+  // width: calc(100% - $scrollbar-width);
+  // @media screen and (max-width : $sm) {
+  //   width: 100%;
+  // }
+
+
   // background-color: $light-gray;
   background-color: rgba(0, 0, 0, 0.699);
 

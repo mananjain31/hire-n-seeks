@@ -1,0 +1,67 @@
+@use '../../globals/global-styles.scss' as *;
+@use '../../globals/explore-jobs-bg.scss' as *;
+
+
+.login-register-page {
+
+  background-color: $explore-bg-color;
+  background-image: $explore-bg-image;
+
+  .gray {
+    color: $light-gray-2;
+    font-weight: 600;
+  }
+
+  section {
+    display: flex;
+
+    gap: 1rem;
+    & > div {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: auto;
+        height: 100%;
+      }
+    }
+    .form-wrapper{
+      box-shadow: $purple 0px 10px 20px;
+      padding-top: 1rem;
+      padding-bottom: 2rem;
+      form{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        h1 {
+          color: $purple;
+          font-size: 2rem;
+        }
+        a{
+          text-decoration: none;
+          color: $purple;
+        }
+        input, label{
+          font-size: .8rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $md) {
+  .login-register-page {
+    section {    
+      flex-direction: column-reverse;
+      justify-content: flex-end;
+      & > div {
+        width: 100%;
+        img {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
