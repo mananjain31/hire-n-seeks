@@ -7,7 +7,7 @@ import { Input, TextField, Button } from '@mui/material';
 import { PurpleButton } from '../../shared/buttons/Buttons';
 
 
-export const LoginPage = () => {
+export const RegisterPage = () => {
   
 
   return (
@@ -15,14 +15,16 @@ export const LoginPage = () => {
       <form>
 
         <div>
-          <h1>Login</h1>
-          <span className='gray'>New To Hire N Seeks ?</span> <Link to='/register'>Register</Link>
+          <h1>Create New Account</h1>
+          <span className='gray'>Already Registered ?</span> <Link to='/login'>Login</Link>
         </div>
         
-        <TextField label="Username / Email / Contact Number" variant="filled"/>
+        <TextField label="Name" variant="filled"/>
+        <TextField label="Email" variant="filled"/>
+        <TextField label="Contact Number" variant="filled"/>
         <TextField label="Password" variant="filled" type="password"/>
 
-        <PurpleButton color="white">Login</PurpleButton>
+        <PurpleButton color="white">Register</PurpleButton>
         
       </form>
     </LoginRegisterPageWrapper>

@@ -23,6 +23,14 @@ export const PrimaryButton = (props) => {
   )
 }
 
+export const PurpleButton = (props) => {
+  return (
+    <span style={{color : props.color || 'inherit'}}>
+      <button {...props} className="purple-button"/>
+    </span>
+  )
+}
+
 
 // export const useLoginSignupButton = props1=> {
 //   return props2=><LoginSignupButton {...props1} {...props2}/>
