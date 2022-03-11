@@ -15,7 +15,7 @@ export const RegisterPage = () => {
       <form>
 
         <div>
-          <h1>Create New Account</h1>
+          <h1>Create Account</h1>
           <span className='gray'>Already Registered ?</span> <Link to='/login'>Login</Link>
         </div>
         

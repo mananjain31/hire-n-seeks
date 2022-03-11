@@ -22,9 +22,9 @@ const LoginRegisterPageWrapper = (props) => {
     <div className='login-register-page'>
       <Navbar navData = {navData} />
       <section className='page-section'>
-        <Paper className='form-wrapper'>
+        <div className='form-wrapper'>
           {props.children} {/* this is a <form> tag */}
-        </Paper>
+        </div>
         <div className="side-image-container">
           <img src={props.sideImage}/>
         </div>
