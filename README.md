@@ -30,7 +30,7 @@ virtualenv EnvName
 
 - Use Environment
 ```
-EnvName\Scripts\activae
+EnvName\Scripts\activate
 ```
 
 **Note:**
