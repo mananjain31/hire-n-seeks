@@ -10,18 +10,36 @@ import {
   loginUser
 } from '../../store/actions/user-actions'
 
+const formDataReducer = (state, ev) => {
+  const {name, value} = ev.target;
+  return {
+    ...state,
+    [name] : value,
+  }
+}
 
 export const LoginPage = () => {
-
-  const user = useSelector(state=>state);
   const dispatch = useDispatch();
+  const user = useSelector(state=>state.user);
+  const [formData, formDataDispatch] = React.useReducer(formDataReducer, {
+    userId : '',
+    password : ''
+  });
+
+  console.log(user);
+  console.log(formData);
 
   const handleSubmit = ev => {
     ev.preventDefault();
-    const formData = new FormData(ev.target);
-    const userId = formData.get('userId');
-    const password = formData.get('password');
-    console.log(userId, password);
+    // validationn code
+    // ******
+    // validationn code ends
+    // const formData = new FormData(ev.target);
+    // const userId = formData.get('userId');
+    // const password = formData.get('password');
+    // console.log(userId, password);
+    
+    dispatch(loginUser({userName : formData.userId, password : formData.password}));
   }
   return (
     <LoginRegisterPageWrapper sideImage={bloggingSVG}>
@@ -32,8 +50,21 @@ export const LoginPage = () => {
           <span className='gray'>New To Hire N Seeks ?</span> <Link to='/register'>Register</Link>
         </div>
         
-        <TextField label="Username / Email / Contact Number" variant="filled" name="userId"/>
-        <TextField label="Password" variant="filled" type="password" name="password"/>
+        <TextField 
+          label="Username / Email / Contact Number" 
+          variant="filled" 
+          name="userId"
+          value={formData.userId}
+          onChange={formDataDispatch}
+        />
+        <TextField 
+          label="Password" 
+          variant="filled" 
+          type="password" 
+          name="password"
+          value={formData.password}
+          onChange={formDataDispatch}
+        />
 
         <PurpleButton color="white">Login</PurpleButton>
         
