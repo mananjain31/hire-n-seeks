@@ -16,13 +16,12 @@ export const LoginPage = () => {
   const user = useSelector(state=>state);
   const dispatch = useDispatch();
 
-  console.log(user);
-  const [name, setname] = React.useState("");
-  const [password, setpassword] = React.useState("");
   const handleSubmit = ev => {
-    // just for testing, will implement this function fully once its done testing redux
     ev.preventDefault();
-    dispatch(loginUser({userName : name, password}));
+    const formData = new FormData(ev.target);
+    const userId = formData.get('userId');
+    const password = formData.get('password');
+    console.log(userId, password);
   }
   return (
     <LoginRegisterPageWrapper sideImage={bloggingSVG}>
@@ -33,8 +32,8 @@ export const LoginPage = () => {
           <span className='gray'>New To Hire N Seeks ?</span> <Link to='/register'>Register</Link>
         </div>
         
-        <TextField label="Username / Email / Contact Number" variant="filled" value={name} onChange={ev=>setname(ev.target.value)}/>
-        <TextField label="Password" variant="filled" type="password" value={password} onChange={ev=>setpassword(ev.target.value)}/>
+        <TextField label="Username / Email / Contact Number" variant="filled" name="userId"/>
+        <TextField label="Password" variant="filled" type="password" name="password"/>
 
         <PurpleButton color="white">Login</PurpleButton>
         
