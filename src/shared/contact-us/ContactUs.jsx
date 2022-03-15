@@ -25,14 +25,14 @@ const ContactUs = (props) => {
           <h3>Address : </h3>
           <p>Indore, Madhya Pradesh, India</p>
           <h3>Team :</h3>
-          <div class="team-member">
+          <div className="team-member">
             <p>Manan Jain</p>
             <p>Jash Sharma</p>
             <p>Aditya Sharma</p>
             <p>Vindhya Tiwari</p>
           </div>
           <hr></hr>
-          <div class="contact-icons-1">
+          <div className="contact-icons-1">
             <img src={GmailIcon} alt="gmail icon" />
             <img src={InstagramIcon} alt="instagram icon" />
             <img src={LinkedinIcon} alt="linkedin icon" />
