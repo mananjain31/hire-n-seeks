@@ -7,11 +7,20 @@ import { RegisterPage } from "./pages/login-register-pages/RegisterPage";
 import { Alert, Slide, Snackbar } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { alertActions } from "./store/slices/alert-slice";
+import RequireAuth from "./pages/RequireAuth";
+import { updateUserToLocalStorage } from "./store/slices/user-slice";
+
+let firstRender = true;
 
 function App() {
-  // console.log(LandingPage);
+
   const alert = useSelector(state => state.alert);
-  console.log(alert);
+  const user = useSelector(state => state.user);
+
+  React.useEffect(() => {
+    updateUserToLocalStorage(user);
+  }, [user]);
+
   const dispatch = useDispatch();
   const closeAlert = () => dispatch(alertActions.close())
   
@@ -21,6 +30,9 @@ function App() {
         <Route exact path='/' element={<LandingPage/>}/>
         <Route exact path='/login' element={<LoginPage/>}/>
         <Route exact path='/register' element={<RegisterPage/>}/>
+        <Route element={<RequireAuth forRecruiter forSeeker/>}>
+          <Route path='/protected' element={<p>Protected Route</p>}/>
+        </Route>
       </Routes>
 
       <Snackbar
@@ -29,7 +41,7 @@ function App() {
         TransitionComponent={Slide}
         onClose={closeAlert}
       >
-        <Alert variant="filled" onClose={closeAlert} elevation={10} severity={alert.severity}>
+        <Alert variant="filled" onClose={closeAlert} elevation={10} severity={alert.severity} key={Math.random()}>
           {alert.message}
         </Alert>
       </Snackbar>

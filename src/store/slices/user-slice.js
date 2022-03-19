@@ -5,9 +5,19 @@ const initialState = {
   is_recruiter : false,
 }
 
+const getInitialStateFromLocalStorage = () => {
+  let user = localStorage.getItem('user')
+  if(user) return JSON.parse(user);
+  return initialState;
+}
+
+export const updateUserToLocalStorage = user => {
+  localStorage.setItem('user', JSON.stringify(user))
+}
+
 const userSlice = createSlice({
   name : 'user',
-  initialState,
+  initialState : getInitialStateFromLocalStorage(),
   reducers : {
     logout(state)  {
       state = initialState
@@ -19,7 +29,10 @@ const userSlice = createSlice({
         loggedIn : true,
       }
       return state;
-    }  
+    },
+    set(state, action) {
+      return action.payload
+    }
   }
 })
 
