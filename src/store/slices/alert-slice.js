@@ -9,7 +9,7 @@ export const SEVERITY_TYPES = {
 
 const initialState = {
   open : false,
-  severity : "",
+  severity : SEVERITY_TYPES.info,
   message : "",
 }
 
