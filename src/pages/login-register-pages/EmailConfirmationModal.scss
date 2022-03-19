@@ -1,0 +1,54 @@
+@use "../../globals/global-styles.scss" as *;
+
+.modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-family: "Hero Light", sans-serif;
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: whitesmoke;
+    width: 35%;
+    padding: 2rem 3rem;
+    gap: 1rem;
+    img {
+      width: 8rem;
+      height: 8rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 900;
+    }
+    p {
+      width: 80%;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    a {
+      color: blue;
+      font-weight: 600;
+    }
+    hr {
+      width: 80%;
+      height: 1.6px;
+      background-color: black;
+    }
+    .resend-email {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+@media screen and (max-width: $md) {
+  .modal-container {
+    .modal-content {
+      width: 100%;
+      margin-left:2rem ;
+      margin-right: 2rem;
+      padding: 2rem 2rem;
+    }
+  }
+}
