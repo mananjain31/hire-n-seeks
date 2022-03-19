@@ -9,6 +9,7 @@ import { PurpleButton } from '../../shared/buttons/Buttons';
 import {
   loginUser
 } from '../../store/actions/user-actions'
+import validateLoginForm from '../../validations/validateLoginForm';
 
 const formDataReducer = (state, ev) => {
   const {name, value} = ev.target;
@@ -25,25 +26,25 @@ export const LoginPage = () => {
     userId : '',
     password : ''
   });
+  const [formErrors, setFormErrors] = React.useState({
+    userId : '',
+    password: ''
+  });
 
-  console.log(user);
-  console.log(formData);
+  // console.log(formData);
 
   const handleSubmit = ev => {
     ev.preventDefault();
-    // validationn code
-    // ******
-    // validationn code ends
-    // const formData = new FormData(ev.target);
-    // const userId = formData.get('userId');
-    // const password = formData.get('password');
-    // console.log(userId, password);
-    
-    dispatch(loginUser({userName : formData.userId, password : formData.password}));
+    const {isValid, errors, data} = validateLoginForm(formData);
+    console.log(data);
+    if(!isValid) return setFormErrors(errors);
+    setFormErrors({});
+    dispatch(loginUser(data));
   }
+
   return (
     <LoginRegisterPageWrapper sideImage={bloggingSVG}>
-      <form onSubmit={handleSubmit}>
+      <form>
 
         <div>
           <h1>Login</h1>
@@ -51,13 +52,19 @@ export const LoginPage = () => {
         </div>
         
         <TextField 
+          required
+          error={!!formErrors.userId}
+          helperText={formErrors.userId}
           label="Username / Email / Contact Number" 
           variant="filled" 
           name="userId"
           value={formData.userId}
           onChange={formDataDispatch}
         />
-        <TextField 
+        <TextField
+          required 
+          error={!!formErrors.password}
+          helperText={formErrors.password}
           label="Password" 
           variant="filled" 
           type="password" 
@@ -66,7 +73,7 @@ export const LoginPage = () => {
           onChange={formDataDispatch}
         />
 
-        <PurpleButton color="white">Login</PurpleButton>
+        <PurpleButton onClick={handleSubmit} color="white">Login</PurpleButton>
         
       </form>
     </LoginRegisterPageWrapper>
