@@ -26,22 +26,22 @@
       text-shadow: black 0 0 15px;
       
       h1 {
-        font-size: 10vw;
+        font-size: 7vw;
         font-weight: bolder;
         line-height: 0.9;
       }
       h2 {
-        font-size: 3vw;
+        font-size: 1.8vw;
         font-weight: bolder;
+      }
+      .join-now-btn {
+        // background-color: black;
+        // color : white;
+        // padding: .2rem;
+        margin-left: auto;
       }
     }
 
-  }
-  .join-now-btn {
-    // background-color: black;
-    // color : white;
-    // padding: .2rem;
-    margin-left: auto;
   }
 }
 
@@ -55,7 +55,9 @@
       
       .hero-right {
         text-align: center;
-        gap: 1.5rem;
+        min-height: 50vh;
+        // justify-content: space-between;
+        gap: 0.8rem;
         // text-shadow: black 0 0 15px;
         h1 {
           font-size: 3rem;
@@ -63,10 +65,11 @@
         h2 {
           font-size: 1.6rem;
         }
+        .join-now-btn {
+          margin: auto;
+          margin-bottom: 8rem;
+        }
       }
     } 
-    .join-now-btn {
-      margin: auto;
-    }
   }
 }
