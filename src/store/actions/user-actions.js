@@ -20,6 +20,25 @@ export const loginUser = (formData) => {
   }
 }
 
+export const registerUser = (formData) => {
+  return async dispatch => {
+    
+    dispatch(alertActions.openInfo("Processing your request..."));
+
+    const {data, error} = await fetcher('/signup', {
+      method : 'POST',
+      body : JSON.stringify(formData)
+    });
+
+    if(error) return dispatch(alertActions.openError(error.message || error))
+
+    console.log('Register data : ', data.userData);
+    // dispatch(userActions.login(data.userData));
+    dispatch(alertActions.openSuccess("Registered Succesfully"));
+
+  }
+}
+
 export const logoutUser = (formData) => {
   return async dispatch => {
 
