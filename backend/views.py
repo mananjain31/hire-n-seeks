@@ -21,11 +21,11 @@ def signup(request):
         signInData = json.loads(request.body)
 
         user_name = signInData["userName"]
-        first_N = signInData["first_name"]
-        last_N = signInData["last_name"]
+        first_N = signInData["firstName"]
+        last_N = signInData["lastName"]
         e_Mail = signInData["email"]
         dofb = signInData["dob"]
-        contact = signInData["contact"]
+        contact = signInData["contactNumber"]
         pass_word = signInData["password"]
 
         if User.objects.filter(userName=user_name).exists():
