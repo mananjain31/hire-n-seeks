@@ -24,7 +24,7 @@ def signup(request):
         first_N = signInData["firstName"]
         last_N = signInData["lastName"]
         e_Mail = signInData["email"]
-        dofb = signInData["dob"]
+        # dofb = signInData["dob"]
         contact = signInData["contactNumber"]
         pass_word = signInData["password"]
 
@@ -45,7 +45,7 @@ def signup(request):
                 firstName=first_N,
                 lastName=last_N,
                 email=e_Mail,
-                dob=dofb,
+                # dob=dofb,
                 contactNumber=contact,
                 is_active=1,
             )
@@ -55,7 +55,7 @@ def signup(request):
                 "First Name": first_N,
                 "Last Name": last_N,
                 "E-Mail": e_Mail,
-                "Date of Birth": dofb,
+                # "Date of Birth": dofb,
                 "Contact": contact,
                 "success": True,
             }
