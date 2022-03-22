@@ -20,7 +20,7 @@ def signup(request):
 
         signInData = json.loads(request.body)
 
-        user_name = signInData["username"]
+        user_name = signInData["userName"]
         first_N = signInData["first_name"]
         last_N = signInData["last_name"]
         e_Mail = signInData["email"]
