@@ -7,12 +7,16 @@ export const loginUser = (formData) => {
     
     dispatch(alertActions.openInfo("Veryfying Login credentials..."));
 
-    const {data, error} = await fetcher('/login', {
+    const {data, error, status} = await fetcher('/login', {
       method : 'POST',
       body : JSON.stringify(formData)
     });
 
-    if(error) return dispatch(alertActions.openError(error))
+    if(error) 
+    {
+      if(status === 500) return dispatch(alertActions.openError("Internal Server Error"))
+      return dispatch(alertActions.openError(error))
+    }
 
     dispatch(userActions.login(data.userData));
     dispatch(alertActions.openSuccess("Logged in Succesfully"));
@@ -25,12 +29,16 @@ export const registerUser = (formData) => {
     
     dispatch(alertActions.openInfo("Processing your request..."));
 
-    const {data, error} = await fetcher('/signup', {
+    const {data, error, status} = await fetcher('/signup', {
       method : 'POST',
       body : JSON.stringify(formData)
     });
 
-    if(error) return dispatch(alertActions.openError(error.message || error))
+    if(error) 
+    {
+      if(status === 500) return dispatch(alertActions.openError("Internal Server Error"))
+      return dispatch(alertActions.openError(error))
+    }
 
     console.log('Register data : ', data.userData);
     // dispatch(userActions.login(data.userData));
@@ -42,9 +50,13 @@ export const registerUser = (formData) => {
 export const logoutUser = (formData) => {
   return async dispatch => {
 
-    const {data, error} = await fetcher('/logouts');
+    const {data, error, status} = await fetcher('/logouts');
 
-    if(error) return dispatch(alertActions.openError(error))
+    if(error) 
+    {
+      if(status === 500) return dispatch(alertActions.openError("Internal Server Error"))
+      return dispatch(alertActions.openError(error))
+    }
 
     dispatch(userActions.logout());
 
