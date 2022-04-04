@@ -8,7 +8,8 @@ export default async function fetcher (...args) {
 
   try {
     const response = await fetch(...args);
-    returnValue.status = response; 
+    returnValue.status = response.status; 
+    returnValue.response = response.response;
     const data = await response.json();
     if( data.success === false ) throw data.error;
     returnValue.data = data;

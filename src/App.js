@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { alertActions } from "./store/slices/alert-slice";
 import RequireAuth from "./pages/RequireAuth";
 import { updateUserToLocalStorage } from "./store/slices/user-slice";
+import JobCard from "./shared/job-card/JobCard";
 
 let firstRender = true;
 
@@ -26,13 +27,26 @@ function App() {
   
   return (
     <div className="App">
+      {/* 
+        for protected routes use Route like this : 
+        -----------
+          <Route element={<RequireAuth forRecruiter forSeeker/>}>
+            <Route path='/protected' element={<p>Protected Route Content</p>}/>
+          </Route>
+        -----------
+        RequireAuth props :
+        - forRecruiter (boolean)
+        - forSeeker (boolean)
+      */}
       <Routes>
         <Route exact path='/' element={<LandingPage/>}/>
         <Route exact path='/login' element={<LoginPage/>}/>
         <Route exact path='/register' element={<RegisterPage/>}/>
+
         <Route element={<RequireAuth forRecruiter forSeeker/>}>
-          <Route path='/protected' element={<p>Protected Route</p>}/>
+          <Route path='/jobs' element={<JobCard/>}/>
         </Route>
+
       </Routes>
 
       <Snackbar

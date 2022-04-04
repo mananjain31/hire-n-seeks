@@ -3,7 +3,7 @@ import React from 'react'
 
 import './JobCard.scss';
 
-const JobCard = () => {
+export const JobCard = () => {
   return (
     <div className='job-card'>
 
