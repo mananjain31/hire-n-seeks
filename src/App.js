@@ -2,8 +2,7 @@ import React from "react";
 import "./App.css";
 import { Routes, Route, Link} from 'react-router-dom';
 import './globals/global-styles.scss'
-import {LandingPage, LoginPage} from './pages'
-import { RegisterPage } from "./pages/login-register-pages/RegisterPage";
+import {LandingPage, LoginPage,  RegisterPage, JobsPage} from './pages'
 import { Alert, Slide, Snackbar } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { alertActions } from "./store/slices/alert-slice";
@@ -34,17 +33,30 @@ function App() {
             <Route path='/protected' element={<p>Protected Route Content</p>}/>
           </Route>
         -----------
+          <Route element={<RequireAuth redirectLoggedIn="/jobs"/>}>
+            <Route exact path='/' element={<LandingPage/>}/>
+            <Route exact path='/login' element={<LoginPage/>}/>
+            <Route exact path='/register' element={<RegisterPage/>}/>
+          </Route>
+        -----------
         RequireAuth props :
         - forRecruiter (boolean)
         - forSeeker (boolean)
+        - restrictLoggedIn (boolean)
       */}
       <Routes>
+
+        {/* <Route element={<RequireAuth redirectLoggedIn="/jobs"/>}>
+          <Route exact path='/' element={<LandingPage/>}/>
+          <Route exact path='/login' element={<LoginPage/>}/>
+          <Route exact path='/register' element={<RegisterPage/>}/>
+        </Route> */}
         <Route exact path='/' element={<LandingPage/>}/>
         <Route exact path='/login' element={<LoginPage/>}/>
         <Route exact path='/register' element={<RegisterPage/>}/>
 
         <Route element={<RequireAuth forRecruiter forSeeker/>}>
-          <Route path='/jobs' element={<JobCard/>}/>
+          <Route path='/jobs' element={<JobsPage/>}/>
         </Route>
 
       </Routes>
