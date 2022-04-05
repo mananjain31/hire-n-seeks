@@ -2,13 +2,12 @@ import React from "react";
 import "./App.css";
 import { Routes, Route, Link} from 'react-router-dom';
 import './globals/global-styles.scss'
-import {LandingPage, LoginPage,  RegisterPage, JobsPage} from './pages'
+import {LandingPage, LoginPage,  RegisterPage,  UserProfilePage,PostingJobDetails,JobsPage} from './pages'
 import { Alert, Slide, Snackbar } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { alertActions } from "./store/slices/alert-slice";
 import RequireAuth from "./pages/RequireAuth";
 import { updateUserToLocalStorage } from "./store/slices/user-slice";
-import JobCard from "./shared/job-card/JobCard";
 
 let firstRender = true;
 
@@ -16,7 +15,7 @@ function App() {
 
   const alert = useSelector(state => state.alert);
   const user = useSelector(state => state.user);
-
+  
   React.useEffect(() => {
     updateUserToLocalStorage(user);
   }, [user]);
@@ -58,7 +57,8 @@ function App() {
         <Route element={<RequireAuth forRecruiter forSeeker/>}>
           <Route path='/jobs' element={<JobsPage/>}/>
         </Route>
-
+        <Route exact path='/userprofile' element={<UserProfilePage/>}/>
+        <Route exact path='/postingjobdetails' element={<PostingJobDetails/>}/>
       </Routes>
 
       <Snackbar
