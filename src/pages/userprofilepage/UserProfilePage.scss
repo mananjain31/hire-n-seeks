@@ -1,0 +1,69 @@
+@use "../../globals/global-styles.scss" as *;
+@use "../../globals/explore-jobs-bg.scss" as *;
+@use "../../globals/user-profile-bg.scss" as *;
+.User-profile-page{
+  background-color: $user-profile-bg-color;
+  background-image: $user-profile-bg-image;
+}
+
+.forms-wrapper {
+  display: flex;
+  gap : 2rem;
+  justify-content: center;
+
+  .user-profile-form {
+    // margin: auto 10rem;        
+    box-shadow: $purple 0px 10px 10px;
+    background-color: white;
+    padding: 2rem 6rem;
+    display: flex;
+    flex-direction: column;
+    min-width: 50%;
+    gap: 2rem;
+    h1 {
+      color: $purple;
+      font-size: 2rem;
+    }
+    a {
+      text-decoration: none;
+      color: $purple;
+    }
+    input,
+    label {
+      font-size: 0.8rem;
+    }
+    .form-wrapper {
+      .user-profile-fields {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .aligned-fields {
+          gap: 1rem;
+          display: flex;
+          & > * {
+            flex: 1;
+          }
+        }
+      }
+    }
+  }
+
+  // .user-profile-picture {
+  //   // margin: auto 10rem;
+  //   box-shadow: $purple 0px 10px 20px;
+  //   background-color: white;
+  //   padding: 2rem 2rem;
+  //   display: flex;
+  //   flex-direction: column;
+  //   height:40vh;
+  //   gap: 2rem;
+  //   h1 {
+  //     color: $purple;
+  //     font-size: 1.2rem;
+  //   }
+  //   h6 {
+  //     color: $light-gray;
+  //     font-size: 0.7rem;
+  //   }
+  // }
+}

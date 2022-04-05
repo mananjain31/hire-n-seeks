@@ -1,0 +1,54 @@
+@use "../../globals/global-styles.scss" as *;
+@use "../../globals/explore-jobs-bg.scss" as *;
+@use "../../globals/user-profile-bg.scss" as *;
+.posting-job-detail-page {
+  background-color: $user-profile-bg-color;
+  background-image: $user-profile-bg-image;
+}
+
+.forms-wrapper {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+
+  .job-detail-form {
+    // margin: auto 10rem;
+    box-shadow: $purple 0px 10px 10px;
+    background-color: white;
+    padding: 2rem 6rem;
+    display: flex;
+    flex-direction: column;
+    min-width: 50%;
+    gap: 2rem;
+    h1 {
+      color: $purple;
+      font-size: 2rem;
+    }
+    a {
+      text-decoration: none;
+      color: $purple;
+    }
+    input,
+    label {
+      font-size: 0.8rem;
+    }
+    .form-wrapper {
+      .job-detail-fields {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .aligned-fields {
+          gap: 1rem;
+          display: flex;
+          & > * {
+            flex: 1;
+          }
+        }
+      }
+      .btn{
+        margin-top: 3rem;
+
+      }
+    }
+  }
+}
