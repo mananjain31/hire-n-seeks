@@ -15,10 +15,7 @@ export const JobsPage = () => {
     const navData = {
         active : pathname+hash,
         navlinks : [
-            {
-            to : '/',
-            label : 'Home'
-            }
+            
         ]
     };
 
@@ -28,7 +25,7 @@ export const JobsPage = () => {
 
     <section className='page-section jobs-page-section'>    
         <header>
-          <h1 className='text-3xl font-bold'>Filters</h1>
+          <h1 className='text-3xl font-bold'>Jobs for freshers and remote Jobs</h1>
         </header>  
         <main>
           <Filters/>
