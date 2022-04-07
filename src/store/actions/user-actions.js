@@ -47,7 +47,7 @@ export const registerUser = (formData) => {
   }
 }
 
-export const logoutUser = (formData) => {
+export const logoutUser = () => {
   return async dispatch => {
 
     const {data, error, status} = await fetcher('/logouts');

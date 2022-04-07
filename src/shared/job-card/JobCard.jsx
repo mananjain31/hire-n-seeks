@@ -1,27 +1,22 @@
-import { CalendarToday, WorkOutline, LocationOn, AccessTime } from '@mui/icons-material';
+import { AccessTime, CalendarToday, LocationOn, WorkOutline } from '@mui/icons-material'
 import React from 'react'
-
-import './JobCard.scss';
+import { PrimaryButton } from '../buttons/Buttons'
 
 export const JobCard = () => {
   return (
-    <div className='job-card'>
+    <div className='bg-purple-50 px-12 py-6 flex flex-col gap-4 items-start'>
+        <h2 className='text-xl font-bold'>Google Hiring  Interns Winter  2021</h2>
+        <div className='flex flex-col items-start gap-1'>
+             <span> <CalendarToday/> Posted on 2021-11-21</span> 
+             <span> <WorkOutline/> Internship</span> 
+             <span> <LocationOn/> Indore(M.P.), India</span> 
+             <span> <AccessTime/> January 2022 - December 2022</span> 
+        </div>
 
-      <div className="card-left">
-        <h2 className='job-title'>Google Hiring <br/> Interns Winter <br/> 2021</h2>
-      </div>
-      
-      
+        <button className='rounded bg-blue-800 text-white px-3 py-2 hover:bg-blue-700 transition-all' >
+            Apply Now
+       </button>
 
-      <div className="card-right">
-        <CalendarToday/> <span>Posted on 2021-11-21</span> <br/>
-        <WorkOutline/> <span>Internship</span> <br/>
-        <LocationOn/> <span>Indore(M.P.), India</span> <br/>
-        <AccessTime/> <span>January 2022 - December 2022</span> <br/>
-      </div>
-
-    </div>
-  )
+    </div>  
+    )
 }
-
-export default JobCard

@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../shared/navbar/Navbar.scss'
 import { Divider, Drawer, Icon, IconButton, List, ListItem, ListItemText } from '@mui/material';
-import {LoginSignupButton} from '../../shared/buttons/Buttons';
+import {LoginSignupLogoutButton} from '../../shared/buttons/Buttons';
 import { Box } from '@mui/system';
 import bloggingSVG from '../../assets/blogging.svg'
 
@@ -10,8 +10,8 @@ const LandingNavbar = ({navData}) => {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const toggleDrawer = () => setDrawerOpen(prev => !prev);
 
-  // const LoginSignupButton = useLoginSignupButton({
-  //   onClick : ()=>alert('clicked LoginSignupButton')
+  // const LoginSignupLogoutButton = useLoginSignupLogoutButton({
+  //   onClick : ()=>alert('clicked LoginSignupLogoutButton')
   // });
 
   const navlinks = navData && navData.navlinks ? navData.navlinks : [];
@@ -29,7 +29,7 @@ const LandingNavbar = ({navData}) => {
   const renderDrawerlinks = () => 
   <Box className='drawerlinks'>
       <List>
-        <LoginSignupButton>New User/Login</LoginSignupButton>
+        <LoginSignupLogoutButton>New User/Login</LoginSignupLogoutButton>
         {
           navData.navlinks.map(navlink =>
             <a href={`#${navlink.to}`} onClick={toggleDrawer} key={navlink.to}>  
@@ -52,7 +52,7 @@ const LandingNavbar = ({navData}) => {
       <ul className='navlinks desktop-only'>
         {renderNavlinks()}
         <li>
-          <LoginSignupButton>New User/Login</LoginSignupButton>
+          <LoginSignupLogoutButton>New User/Login</LoginSignupLogoutButton>
         </li>
       </ul>
 

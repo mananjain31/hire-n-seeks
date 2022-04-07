@@ -6,18 +6,22 @@ export default function RequireAuth({ forRecruiter, forSeeker, redirectLoggedIn 
   const location = useLocation();
   const user = useSelector(state => state.user);
 
-  if(!user?.loggedIn)
+  console.log(location);
+  if(user.loggedIn && typeof redirectLoggedIn === "string")  
+     return <Navigate to={redirectLoggedIn} state={{ from: location }} replace />;
+
+  if(!user.loggedIn && !redirectLoggedIn )
     return <Navigate to="/login" state={{ from: location }} replace />;
 
-  if(typeof redirectLoggedIn === "string")  
-     return <Navigate to={redirectLoggedIn} state={{ from: location }} replace />;
 
   // console.log(forRecruiter && forSeeker
   //   ,  (forRecruiter && user.is_recruiter)
   //   ,  (forSeeker && !user.is_recruiter));
 
+
   if(
-        forRecruiter && forSeeker
+    !forRecruiter && !forSeeker
+    ||  forRecruiter && forSeeker
     ||  (forRecruiter && user.is_recruiter)
     ||  (forSeeker && !user.is_recruiter)
   ) return <Outlet/>

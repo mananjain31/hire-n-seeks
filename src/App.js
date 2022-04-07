@@ -50,15 +50,23 @@ function App() {
           <Route exact path='/login' element={<LoginPage/>}/>
           <Route exact path='/register' element={<RegisterPage/>}/>
         </Route> */}
-        <Route exact path='/' element={<LandingPage/>}/>
-        <Route exact path='/login' element={<LoginPage/>}/>
-        <Route exact path='/register' element={<RegisterPage/>}/>
+        <Route element={<RequireAuth redirectLoggedIn="/jobs"/>}>
+          <Route exact path='/' element={<LandingPage/>}/>
+          <Route exact path='/login' element={<LoginPage/>}/>
+          <Route exact path='/register' element={<RegisterPage/>}/>
+        </Route>
 
+        {/* for both roles */}
         <Route element={<RequireAuth forRecruiter forSeeker/>}>
           <Route path='/jobs' element={<JobsPage/>}/>
+          <Route exact path='/userprofile' element={<UserProfilePage/>}/>
         </Route>
-        <Route exact path='/userprofile' element={<UserProfilePage/>}/>
-        <Route exact path='/postingjobdetails' element={<PostingJobDetails/>}/>
+
+        {/* for recruiter roles */}
+        <Route element={<RequireAuth forRecruiter/>}>
+          <Route exact path='/postingjobdetails' element={<PostingJobDetails/>}/>
+        </Route>
+
       </Routes>
 
       <Snackbar
