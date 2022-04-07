@@ -1,20 +1,17 @@
 import React from 'react'
 import './Navbar.scss'
 import { Divider, Drawer, Icon, IconButton, List, ListItem, ListItemText } from '@mui/material';
-import {LoginSignupButton} from '../buttons/Buttons';
+import {LoginSignupLogoutButton} from '../buttons/Buttons';
 import { Box } from '@mui/system';
 import bloggingSVG from '../../assets/blogging.svg'
 import { Link } from 'react-router-dom';
 
 const Navbar = ({navData}) => {
 
+  
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const toggleDrawer = () => setDrawerOpen(prev => !prev);
-
-  // const LoginSignupButton = useLoginSignupButton({
-  //   onClick : ()=>alert('clicked LoginSignupButton')
-  // });
-
+  
   const navlinks = navData && navData.navlinks ? navData.navlinks : [];
   const renderNavlinks = () => 
     navData.navlinks.map(navlink => 
@@ -30,7 +27,7 @@ const Navbar = ({navData}) => {
   const renderDrawerlinks = () => 
   <Box className='drawerlinks'>
       <List>
-        <LoginSignupButton>New User/Login</LoginSignupButton>
+        <LoginSignupLogoutButton/>
         {
           navData.navlinks.map(navlink =>
             <Link to={navlink.to} onClick={toggleDrawer} key={navlink.to}>  
@@ -53,7 +50,7 @@ const Navbar = ({navData}) => {
       <ul className='navlinks desktop-only'>
         {renderNavlinks()}
         <li>
-          <LoginSignupButton>New User/Login</LoginSignupButton>
+          <LoginSignupLogoutButton/>
         </li>
       </ul>
 

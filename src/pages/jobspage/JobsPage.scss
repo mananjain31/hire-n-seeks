@@ -1,0 +1,12 @@
+
+.jobs-page{
+    .jobs-page-section{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        & > main {
+            display: flex;
+            gap: 2rem;
+        }
+    }
+}

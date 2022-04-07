@@ -1,16 +1,30 @@
 import React from 'react'
 import {Button} from '@mui/material'
-
 import './Buttons.scss'
-import { useNavigate } from 'react-router-dom'
 
-export const LoginSignupButton = (props) => {
+import { useNavigate} from 'react-router-dom'
+import { logoutUser } from '../../store/actions/user-actions'
+import { useDispatch, useSelector } from 'react-redux'
+
+export const LoginSignupLogoutButton = (props) => {
+
+
+  const { loggedIn } = useSelector(state => state.user);
   const navigate = useNavigate();
-  const navigateToLoginPage = () => {
-    navigate('/login');
+  const dispatch = useDispatch();
+  
+  const buttonText = loggedIn ? 'Logout' : 'New User/Login';
+  
+  const handleClick = () => {    
+    console.log(loggedIn);
+    if(!loggedIn) navigate('/login')
+    else dispatch(logoutUser());
   }
+
   return (
-    <Button {...props} variant="outlined" className="login-signup-button" onClick={navigateToLoginPage}/>
+    <Button {...props} variant="outlined" className="login-signup-logout-button" onClick={handleClick}> 
+      {buttonText}
+    </Button>
   )
 }
 
@@ -32,6 +46,6 @@ export const PurpleButton = (props) => {
 }
 
 
-// export const useLoginSignupButton = props1=> {
-//   return props2=><LoginSignupButton {...props1} {...props2}/>
+// export const useLoginSignupLogoutButton = props1=> {
+  //   return props2=><LoginSignupLogoutButton {...props1} {...props2}/>
 // 

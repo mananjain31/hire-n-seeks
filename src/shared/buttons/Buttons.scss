@@ -1,6 +1,6 @@
 @use '../../globals/global-styles.scss' as *;
 
-.login-signup-button { 
+.login-signup-logout-button { 
   &.MuiButton-root, &.MuiButton-root:hover {
     color: $purple;
     font-weight: 600;
