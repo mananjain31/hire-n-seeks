@@ -1,9 +1,9 @@
 @use "../../globals/global-styles.scss" as *;
 @use "../../globals/explore-jobs-bg.scss" as *;
-@use "../../globals/user-profile-bg.scss" as *;
+// @use "../../globals/user-profile-bg.scss" as *;
 .User-profile-page{
-  background-color: $user-profile-bg-color;
-  background-image: $user-profile-bg-image;
+  background-color: $explore-bg-color;
+  background-image: $explore-bg-image;
 }
 
 .forms-wrapper {
@@ -66,4 +66,26 @@
   //     font-size: 0.7rem;
   //   }
   // }
+}
+@media screen and (max-width: $md){
+  .forms-wrapper{
+    
+
+    .user-profile-form{
+      width: 100%;
+      padding: 2rem 2rem;
+      .form-wrapper{
+        .user-profile-fields {
+          .aligned-fields{
+            gap:0rem;
+            flex-direction: column;
+          }
+
+        }
+
+      }
+  
+    }
+  }
+
 }
