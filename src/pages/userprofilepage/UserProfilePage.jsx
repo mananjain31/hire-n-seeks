@@ -12,19 +12,19 @@ export const UserProfilePage = () => {
         active: pathname + hash,
         navlinks: [
             {
-                to: '/',
+                to: '/jobs',
                 label: 'Jobs'
             },
+            // {
+            //     to: '/',
+            //     label: 'Applied Jobs'
+            // },
+            // {
+            //     to: '/',
+            //     label: 'Posted Jobs'
+            // },
             {
-                to: '/',
-                label: 'Applied Jobs'
-            },
-            {
-                to: '/',
-                label: 'Posted Jobs'
-            },
-            {
-                to: '/',
+                to: '/userprofile',
                 label: 'User Profile'
             }
         ]

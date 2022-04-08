@@ -15,7 +15,14 @@ export const JobsPage = () => {
     const navData = {
         active : pathname+hash,
         navlinks : [
-            
+            {
+                label : 'Jobs',
+                to : '/jobs',
+            },
+            {
+                label : 'User Profile',
+                to : '/userprofile',
+            }
         ]
     };
 
