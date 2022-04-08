@@ -61,11 +61,12 @@ function App() {
           <Route path='/jobs' element={<JobsPage/>}/>
           <Route exact path='/userprofile' element={<UserProfilePage/>}/>
         </Route>
-
+        
         {/* for recruiter roles */}
         <Route element={<RequireAuth forRecruiter/>}>
           <Route exact path='/postingjobdetails' element={<PostingJobDetails/>}/>
         </Route>
+        
 
       </Routes>
 
