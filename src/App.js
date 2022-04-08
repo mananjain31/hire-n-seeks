@@ -59,15 +59,14 @@ function App() {
         {/* for both roles */}
         <Route element={<RequireAuth forRecruiter forSeeker/>}>
           <Route path='/jobs' element={<JobsPage/>}/>
-          {/* <Route exact path='/userprofile' element={<UserProfilePage/>}/> */}
+          <Route exact path='/userprofile' element={<UserProfilePage/>}/>
         </Route>
-        <Route exact path='/userprofile' element={<UserProfilePage/>}/>
-
+        
         {/* for recruiter roles */}
         <Route element={<RequireAuth forRecruiter/>}>
-          {/* <Route exact path='/postingjobdetails' element={<PostingJobDetails/>}/> */}
+          <Route exact path='/postingjobdetails' element={<PostingJobDetails/>}/>
         </Route>
-        <Route exact path='/postingjobdetails' element={<PostingJobDetails/>}/>
+        
 
       </Routes>
 
