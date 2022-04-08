@@ -4,7 +4,7 @@ import { PrimaryButton } from '../buttons/Buttons'
 
 export const JobCard = () => {
   return (
-    <div className='bg-purple-50 px-12 py-6 flex flex-col gap-4 items-start'>
+    <div className='bg-purple-rgba px-12 py-6 flex flex-col gap-4 items-start'>
         <h2 className='text-xl font-bold'>Google Hiring  Interns Winter  2021</h2>
         <div className='flex flex-col items-start gap-1'>
              <span> <CalendarToday/> Posted on 2021-11-21</span> 
