@@ -1,5 +1,10 @@
+@use '../../globals/global-styles.scss' as *;
+@use '../../globals/explore-jobs-bg.scss' as *;
 
 .jobs-page{
+    background-color: $explore-bg-color;
+    background-image: $explore-bg-image;
+
     .jobs-page-section{
         display: flex;
         flex-direction: column;
