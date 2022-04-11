@@ -15,12 +15,14 @@ export const loginUser = (formData) => {
     if(error) 
     {
       if(status === 500) return dispatch(alertActions.openError("Internal Server Error"))
-      return dispatch(alertActions.openError(error))
+      dispatch(alertActions.openError(error))
+      return false;
     }
 
     dispatch(userActions.login(data.userData));
     dispatch(alertActions.openSuccess("Logged in Succesfully"));
 
+    return true; 
   }
 }
 
@@ -37,13 +39,15 @@ export const registerUser = (formData) => {
     if(error) 
     {
       if(status === 500) return dispatch(alertActions.openError("Internal Server Error"))
-      return dispatch(alertActions.openError(error))
+      dispatch(alertActions.openError(error))
+      return false;
     }
 
     console.log('Register data : ', data.userData);
     // dispatch(userActions.login(data.userData));
     dispatch(alertActions.openSuccess("Registered Succesfully"));
 
+    return true; 
   }
 }
 
@@ -55,10 +59,12 @@ export const logoutUser = () => {
     if(error) 
     {
       if(status === 500) return dispatch(alertActions.openError("Internal Server Error"))
-      return dispatch(alertActions.openError(error))
+      dispatch(alertActions.openError(error))
+      return false;
     }
 
     dispatch(userActions.logout());
 
+    return true; 
   }
 }

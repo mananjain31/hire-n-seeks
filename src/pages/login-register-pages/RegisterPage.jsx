@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 import LoginRegisterPageWrapper from './LoginRegisterPageWrapper';
 import bloggingSVG from '../../assets/blogging.svg'
@@ -30,6 +30,7 @@ const initialFormValues = {
 export const RegisterPage = () => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   
   const [formData, formDataDispatch] = React.useReducer(formDataReducer,   initialFormValues);
   const [formErrors, setFormErrors] = React.useState(initialFormValues);
@@ -44,8 +45,8 @@ export const RegisterPage = () => {
 
     if(!isValid) return setFormErrors(errors);
     setFormErrors({});  
-    dispatch(registerUser(data));
-    
+    dispatch(registerUser(data))
+    .then(success => success === true ? navigate('/login') : null);
   }
 
   return (
