@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 import { JobCard } from '../../shared/explore-jobs/ExploreJobCard'
@@ -9,6 +10,10 @@ import Filters, { FiltersForMobile } from './Filters';
 import './JobsPage.scss'
 
 export const JobsPage = () => {
+
+
+    const alert = useSelector(state => state.alert);
+    const user = useSelector(state => state.user);
 
     const {pathname, hash} = useLocation();
     
@@ -25,6 +30,12 @@ export const JobsPage = () => {
             }
         ]
     };
+    if(user.is_recruiter) {
+        navData.navlinks.push({
+            label : 'Post a Job',
+            to : '/postingjobdetails',
+        });
+    }
 
   return (
     <div className='jobs-page'>
