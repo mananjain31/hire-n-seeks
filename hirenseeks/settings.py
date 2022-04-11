@@ -75,31 +75,31 @@ WSGI_APPLICATION = 'hirenseeks.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-#******************** Jash Sharma ********************
+# ******************** Jash Sharma ********************
 
-# DATABASES = {
-#      'default': {
-#          'ENGINE': 'django.db.backends.mysql',
-#          'NAME': 'hirenseekers',
-#          'USER': 'root',
-#          'PASSWORD': 'admin',
-#          'HOST': 'localhost',
-#          'PORT': '3306',
-#      }
-#  }
+DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.mysql',
+         'NAME': 'hirenseekers',
+         'USER': 'root',
+         'PASSWORD': 'admin',
+         'HOST': 'localhost',
+         'PORT': '3306',
+     }
+ }
 
 #******************** Manan Jain ********************
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hireandseeks',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'hireandseeks',
+#         'USER': 'root',
+#         'PASSWORD': 'root',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
 
 pymysql.version_info = (1, 4, 2, "final", 0)
 pymysql.install_as_MySQLdb()

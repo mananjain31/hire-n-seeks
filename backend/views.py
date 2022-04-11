@@ -241,10 +241,9 @@ def postJob(request):
 @csrf_exempt
 def jobPostedBy(request):
     currUser = request.session.get("user")
-    jobsPostedBy = postedJob.objects.filter(postedBy=currUser)
+    jobsPostedByUser = postedJob.objects.filter(postedBy=currUser)
     jobsList = []
-    for jobs in jobsPostedBy:
-
+    for jobs in jobsPostedByUser:
         userID = jobs.appliedPeople
         userNameOfApplicants = []
 
@@ -252,6 +251,7 @@ def jobPostedBy(request):
             userNameOfApplicants.append("None")
 
         else:
+            userID = userID[1:]
 
             appPeople = list(userID.split(" "))
 
@@ -263,7 +263,7 @@ def jobPostedBy(request):
                     return JsonResponse(
                         {
                             "success": False,
-                            "error": "No Job by the ID",
+                            "error": "No User Applied",
                         }
                     )
 
