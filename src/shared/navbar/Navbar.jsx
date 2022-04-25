@@ -4,11 +4,39 @@ import { Divider, Drawer, Icon, IconButton, List, ListItem, ListItemText } from 
 import {LoginSignupLogoutButton} from '../buttons/Buttons';
 import { Box } from '@mui/system';
 import bloggingSVG from '../../assets/blogging.svg'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-const Navbar = ({navData}) => {
+const Navbar = ({navData : navigationsData}) => {
 
+  const user = useSelector(state => state.user);
+
+  const {pathname, hash} = useLocation();
   
+  const navData = navigationsData || {
+      active : pathname+hash,
+      navlinks : [
+          {
+              label : 'Jobs',
+              to : '/jobs',
+          },
+          {
+              label : 'User Profile',
+              to : '/userprofile',
+          }
+      ]
+  };
+  if(user.is_recruiter) {
+    navData.navlinks.push({
+        label : 'Post a Job',
+        to : '/postingjobdetails',
+    });
+    navData.navlinks.push({
+        label : 'Posted Jobs',
+        to : '/postedjobs',
+    });
+  }
+
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const toggleDrawer = () => setDrawerOpen(prev => !prev);
   

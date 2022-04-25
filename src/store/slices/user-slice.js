@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import arrayFromString from '../../utils/arrayFromString';
 
 const initialState = {
   loggedIn : false,
@@ -24,8 +25,12 @@ const userSlice = createSlice({
       return state;
     },
     login(state, action)  {
+      let skills = arrayFromString(action.payload.skills);
+      let projects = arrayFromString(action.payload.projects);
       state = {
         ...action.payload,
+        skills,
+        projects,
         loggedIn : true,
       }
       return state;

@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import fetcher from '../../utils/fetcher';
 import { alertActions } from '../slices/alert-slice';
 import { userActions } from '../slices/user-slice'
@@ -65,6 +66,50 @@ export const logoutUser = () => {
 
     dispatch(userActions.logout());
 
+    return true; 
+  }
+}
+
+export const fetchAndUpdateUserData = (userName) => {
+  return async dispatch => {
+    const {data, error, status} = await fetcher(`/user/${userName}`);
+
+
+    if(error) 
+    {
+      if(status === 500) return dispatch(alertActions.openError("Internal Server Error"))
+      dispatch(alertActions.openError(error))
+      return false;
+    }
+
+    dispatch(userActions.login(data.data));
+
+    return true; 
+  }
+}
+
+export const updateData = (formData, successCallback) => {
+  return async dispatch => {
+
+    const {data, error, status} = await fetcher('/update', {
+      method : 'POST',
+      body : JSON.stringify(formData),
+      headers : {
+        'Content-Type' : 'application/json',
+      }
+    });
+
+    if(error) 
+    {
+      if(status === 500) return dispatch(alertActions.openError(error))
+      dispatch(alertActions.openError(error))
+      return false;
+    }
+
+    dispatch(fetchAndUpdateUserData(formData.userName));
+    dispatch(alertActions.openSuccess("Updated Succesfully"));
+    successCallback();
+    
     return true; 
   }
 }

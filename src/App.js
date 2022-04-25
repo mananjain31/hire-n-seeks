@@ -2,17 +2,30 @@ import React from "react";
 import "./App.css";
 import { Routes, Route, Link} from 'react-router-dom';
 import './globals/global-styles.scss'
-import {LandingPage, LoginPage,  RegisterPage,  UserProfilePage,PostingJobDetails,JobsPage} from './pages'
+import {LandingPage, LoginPage,  RegisterPage,  UserProfilePage,PostingJobDetails,JobsPage, PostedJobsPage} from './pages'
 import { Alert, Slide, Snackbar } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { alertActions } from "./store/slices/alert-slice";
 import RequireAuth from "./pages/RequireAuth";
 import { updateUserToLocalStorage } from "./store/slices/user-slice";
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from "@mui/system";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#8c52ff',
+    },
+    // secondary: {
+    //   main: '#edf2ff',
+    // },
+  },
+});
 
 let firstRender = true;
 
-function App() {
 
+function App() {
   const alert = useSelector(state => state.alert);
   const user = useSelector(state => state.user);
   
@@ -24,6 +37,7 @@ function App() {
   const closeAlert = () => dispatch(alertActions.close())
   
   return (
+    <ThemeProvider theme={theme}>
     <div className="App">
       {/* 
         for protected routes use Route like this : 
@@ -65,6 +79,7 @@ function App() {
         {/* for recruiter roles */}
         <Route element={<RequireAuth forRecruiter/>}>
           <Route exact path='/postingjobdetails' element={<PostingJobDetails/>}/>
+          <Route exact path='/postedjobs' element={<PostedJobsPage/>}/>
         </Route>
         
 
@@ -82,6 +97,7 @@ function App() {
       </Snackbar>
 
     </div>
+    </ThemeProvider>
   );
 }
 

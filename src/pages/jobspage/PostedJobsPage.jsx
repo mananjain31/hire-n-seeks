@@ -10,13 +10,17 @@ import Filters, { FiltersForMobile } from './Filters';
 
 import './JobsPage.scss'
 
-export const JobsPage = () => {
+export const PostedJobsPage = () => {
 
   const dispatch = useDispatch();
+  
   const jobs = useSelector(state => state.jobs)
-  React.useEffect(()=>{
-    dispatch(loadJobs());
-  }, [])
+  const user = useSelector(state => state.user)
+  const state = useSelector(state => state);
+    
+    React.useEffect(()=>{
+        dispatch(loadJobs());
+    }, [])
 
   return (
     <div className='jobs-page'>
@@ -24,7 +28,7 @@ export const JobsPage = () => {
 
     <section className='page-section jobs-page-section'>    
         <header>
-          <h1 className='text-3xl font-bold'>Jobs for freshers and remote Jobs</h1>
+          <h1 className='text-3xl font-bold'>Posted Jobs</h1>
         </header>
         <FiltersForMobile/>
         <main>
@@ -33,7 +37,11 @@ export const JobsPage = () => {
             <Filters/>
           </div>
 
-          <JobCardList jobs={jobs?.jobList || []}/>
+          <JobCardList jobs={
+                jobs?.jobList.filter(job => {
+                    return job.postedBy === user.userName
+                }) || []
+            }/>
         </main>
     </section>
     </div>
