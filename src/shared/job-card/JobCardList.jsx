@@ -7,7 +7,7 @@ export const JobCardList = (props) => {
         <div className='flex flex-col flex-1 gap-4'>
             {
                 jobs.map(job =>
-                    <JobCard/>
+                    <JobCard key={job.id} job = {job}/>
                 )
             }
         </div>

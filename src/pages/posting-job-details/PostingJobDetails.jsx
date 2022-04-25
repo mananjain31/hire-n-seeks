@@ -1,43 +1,64 @@
 import React from 'react'
 import { Input, TextField, Button } from '@mui/material';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { PurpleButton } from '../../shared/buttons/Buttons';
 import Navbar from '../../shared/navbar/Navbar'
 import './PostingJobDetails.scss'
+import { useDispatch, useSelector } from 'react-redux';
+import SkillsInput from '../userprofilepage/SkillsInput';
+import { postJob } from '../../store/actions/jobs-actions';
+
+const initialFormData = {
+    title : "", 
+    jobPos : "", 
+    desc : "", 
+    reqSkill : "",
+    expLevel : "",
+    location : "",
+    timing : "",
+    jobDate : "",
+    appliedPeople : "",
+}
+
+// pass ev as {INIT:user} to convert and inialise the user data recieved from the server
+// pass ev as {LIST : { name : "projects", value : [{},{},....] } } to modify lists
+const formDataReducer = (state, ev) => {
+    if (ev.INIT)
+        return ev.INIT;
+    if (ev.LIST) {
+        const { name, value } = ev.LIST;
+        return {
+            ...state,
+            [name]: value,
+        }
+    }
+    const { name, value } = ev.target;
+    return {
+        ...state,
+        [name]: value,
+    }
+}
 
 export const PostingJobDetails = () => {
-    const { pathname, hash } = useLocation();
+    
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const alert = useSelector(state => state.alert);
+    const user = useSelector(state => state.user);
+    const [formData, formDataDispatch] = React.useReducer(formDataReducer, initialFormData);
+    const [formErrors, setFormErrors] = React.useState(initialFormData);
 
-    const navData = {
-        active: pathname + hash,
-        navlinks: [
-            {
-                to: '/',
-                label: 'Jobs'
-            },
-            {
-                to: '/',
-                label: 'Applied Jobs'
-            },
-            {
-                to: '/',
-                label: 'Posted Jobs'
-            },
-            {
-                to: '/',
-                label: 'User Profile'
-            },
-            {
-                to: '/',
-                label: 'Job Details'
-            }
-        ]
-    };
-
+    const handleSubmit = ev => { 
+        ev.preventDefault();
+        console.log(formData);
+        dispatch(postJob(formData, function successCallback(){
+            navigate("/");
+        })); // continue here
+    }
 
     return (
         <div className='posting-job-detail-page'>
-            <Navbar navData={navData} />
+            <Navbar/>
             <section className='page-section'>
                 <div className='forms-wrapper'>
                     <form className='job-detail-form'>
@@ -49,20 +70,22 @@ export const PostingJobDetails = () => {
                                 {/* <span className='gray'>New To Hire N Seeks ?</span> <Link to='/register'>Register</Link> */}
                             </div>
                             <div className='job-detail-fields'>
-                                <TextField label="Title" variant="standard" /> 
+                                <TextField name="title" onChange={formDataDispatch} label="Title" variant="standard" /> 
                                 
-                                <TextField label="Position" variant="standard"/>
+                                <TextField name="jobPos" onChange={formDataDispatch} label="Position" variant="standard"/>
                                 
-                                <TextField label="Description" variant="standard" />
-                                <TextField label="Working Hours" variant="standard" type="number"/>
-                                <TextField label="Required Skills" variant="standard" />
-                                <TextField label="Experience Level" variant="standard" type="number"/>
+                                <TextField name="timing" onChange={formDataDispatch} label="Working Hours" variant="standard" type="number"/>
+                                <TextField name="expLevel" onChange={formDataDispatch} label="Experience Level" variant="standard" type="number"/>
                                 
-                                <TextField label="Location" variant="standard"/>
-                               
+                                <TextField name="location" onChange={formDataDispatch} label="Location" variant="standard"/>
+
+                                <SkillsInput userSkills = {formData.reqSkill} formDataDispatch={formDataDispatch} error={formErrors.skills} name="reqSkill" />
+
+                                <TextField name="desc" onChange={formDataDispatch} label="Description" variant="outlined" multiline rows={3}/>
+
                             </div>
                             <div className='btn'>
-                                <PurpleButton color="white">Post</PurpleButton>
+                                <PurpleButton onClick={handleSubmit} color="white">Post</PurpleButton>
                             </div>
                         </div>
                     </form>
