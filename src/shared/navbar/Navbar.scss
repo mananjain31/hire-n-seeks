@@ -52,10 +52,10 @@ $navbar-p-y : .3rem;
       font-weight: 500;
       color: inherit;
     }
-    :not(.active){
+    a:not(.active){
       color: $purple;
     }
-    .active {
+    a.active {
       color: white;
     }
   }

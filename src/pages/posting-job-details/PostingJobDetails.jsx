@@ -32,7 +32,8 @@ const formDataReducer = (state, ev) => {
             [name]: value,
         }
     }
-    const { name, value } = ev.target;
+    let { name, value } = ev.target;
+    if (name == "desc") value = value.substring(0, 300);
     return {
         ...state,
         [name]: value,
@@ -56,6 +57,7 @@ export const PostingJobDetails = () => {
         })); 
     }
 
+    console.log(formData);
     return (
         <div className='posting-job-detail-page'>
             <Navbar/>
@@ -70,18 +72,18 @@ export const PostingJobDetails = () => {
                                 {/* <span className='gray'>New To Hire N Seeks ?</span> <Link to='/register'>Register</Link> */}
                             </div>
                             <div className='job-detail-fields'>
-                                <TextField name="title" onChange={formDataDispatch} label="Title" variant="standard" /> 
+                                <TextField name="title" value={formData.title} onChange={formDataDispatch} label="Title" variant="standard" /> 
                                 
-                                <TextField name="jobPos" onChange={formDataDispatch} label="Position" variant="standard"/>
+                                <TextField name="jobPos" value={formData.jobPos} onChange={formDataDispatch} label="Position" variant="standard"/>
                                 
-                                <TextField name="timing" onChange={formDataDispatch} label="Working Hours" variant="standard" type="number"/>
-                                <TextField name="expLevel" onChange={formDataDispatch} label="Experience Level" variant="standard" type="number"/>
+                                <TextField name="timing" value={formData.timing} onChange={formDataDispatch} label="Working Hours" variant="standard" type="number"/>
+                                <TextField name="expLevel" value={formData.expLevel} onChange={formDataDispatch} label="Experience Level" variant="standard" type="number"/>
                                 
-                                <TextField name="location" onChange={formDataDispatch} label="Location" variant="standard"/>
+                                <TextField name="location" value={formData.location} onChange={formDataDispatch} label="Location" variant="standard"/>
 
                                 <SkillsInput userSkills = {formData.reqSkill} formDataDispatch={formDataDispatch} error={formErrors.skills} name="reqSkill" />
 
-                                <TextField name="desc" onChange={formDataDispatch} label="Description" variant="outlined" multiline rows={3}/>
+                                <TextField name="desc" value={formData.desc} onChange={formDataDispatch} label="Description" variant="outlined" multiline rows={3}/>
 
                             </div>
                             <div className='btn'>

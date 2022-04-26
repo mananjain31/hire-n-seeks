@@ -34,6 +34,7 @@ export const LoginSignupLogoutButton = (props) => {
   return (
     <>
       <Button 
+        color="inherit"
         endIcon={
         !loggedIn ? null
           : <ArrowDropDown/>

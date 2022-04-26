@@ -26,6 +26,7 @@ const Navbar = ({navData : navigationsData}) => {
           }
       ]
   };
+  if(user.loggedIn)
   if(user.is_recruiter) {
     navData.navlinks = navData.navlinks.concat([{
         label : 'Post a Job',
@@ -50,7 +51,7 @@ const Navbar = ({navData : navigationsData}) => {
   const renderNavlinks = () => 
     navData.navlinks.map(navlink => 
 
-      <li key={navlink.to}>
+      <li key={navlink.to+"navlink"}>
         <Link to={navlink.to} className={`${navData.active == navlink.to && 'active'}`}> 
           {navlink.label}
         </Link>
@@ -64,7 +65,7 @@ const Navbar = ({navData : navigationsData}) => {
         <LoginSignupLogoutButton/>
         {
           navData.navlinks.map(navlink =>
-            <Link to={navlink.to} onClick={toggleDrawer} key={navlink.to}>  
+            <Link to={navlink.to} onClick={toggleDrawer} key={navlink.to + "drawerlink"}>  
               <ListItem button>
                   {navlink.label}
               </ListItem>
