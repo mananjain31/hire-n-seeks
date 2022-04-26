@@ -53,7 +53,7 @@ export const PostingJobDetails = () => {
         console.log(formData);
         dispatch(postJob(formData, function successCallback(){
             navigate("/");
-        })); // continue here
+        })); 
     }
 
     return (
