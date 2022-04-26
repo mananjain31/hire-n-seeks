@@ -16,7 +16,8 @@ const jobsSlice = createSlice({
     setJobList(state, action) {
       state.jobList = action.payload?.map(job =>  ({
         ...job,
-        reqSkill : arrayFromString(job.reqSkill)
+        reqSkill : arrayFromString(job.reqSkill),
+        appliedPeople : job.appliedPeople?.split(" ").filter(x => x)
       }));
     },  
   }
