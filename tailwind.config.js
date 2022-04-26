@@ -4,6 +4,8 @@ module.exports = {
     extend: {
       colors: {
         'purple-rgba': 'rgb(230, 222, 245, 0.6)',
+        'primary' : '#8c52ff',
+        'primary-light' : '#b9a0ff',
       },
     },
   },

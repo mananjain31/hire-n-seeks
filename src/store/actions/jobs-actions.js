@@ -34,7 +34,7 @@ export const postJob = (formData, successCallback) => {
     });
     if(error) 
     {
-      if(status === 500) return dispatch(alertActions.openError("Error fetching jobs"))
+      if(status === 500) return dispatch(alertActions.openError("Internal Server Error"))
       dispatch(alertActions.openError(error))
       return false;
     }
@@ -54,7 +54,7 @@ export const applyJob = (jobId, successCallback) => {
     const {data, error, status} = await fetcher('/apply/'+jobId);
     if(error)
     {
-      if(status === 500) return dispatch(alertActions.openError("Error fetching jobs"))
+      if(status === 500) return dispatch(alertActions.openError("Internal Server Error"))
       dispatch(alertActions.openError(error))
       return false;
     }
