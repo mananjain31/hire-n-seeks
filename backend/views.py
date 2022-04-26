@@ -71,6 +71,7 @@ def userData(user):
     userData = User.objects.get(userName=user)
     # return userData
     return {
+        "id":userData.id,
         "userName": userData.userName,
         "firstName": userData.firstName,
         "lastName": userData.lastName,
