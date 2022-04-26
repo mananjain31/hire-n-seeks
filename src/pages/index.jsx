@@ -5,3 +5,4 @@ export {JobsPage} from './jobspage/JobsPage'
 export {UserProfilePage} from './userprofilepage/UserProfilePage';
 export {PostingJobDetails} from './posting-job-details/PostingJobDetails';
 export {PostedJobsPage} from './jobspage/PostedJobsPage'
+export {AppliedJobsPage} from './jobspage/AppliedJobsPage'

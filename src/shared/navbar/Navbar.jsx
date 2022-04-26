@@ -27,14 +27,20 @@ const Navbar = ({navData : navigationsData}) => {
       ]
   };
   if(user.is_recruiter) {
-    navData.navlinks.push({
+    navData.navlinks = navData.navlinks.concat([{
         label : 'Post a Job',
         to : '/postingjobdetails',
-    });
-    navData.navlinks.push({
+    },
+    {
         label : 'Posted Jobs',
         to : '/postedjobs',
-    });
+    }]);
+  } 
+  else {
+    navData.navlinks = navData.navlinks.concat([{
+        label : 'Applied Jobs',
+        to : '/appliedjobs',
+    }]);
   }
 
   const [drawerOpen, setDrawerOpen] = React.useState(false);
