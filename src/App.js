@@ -10,6 +10,7 @@ import RequireAuth from "./pages/RequireAuth";
 import { updateUserToLocalStorage } from "./store/slices/user-slice";
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from "@mui/system";
+import { UserPortfolioPage } from "./pages/userportfolio/UserPortfolioPage";
 
 const theme = createTheme({
   palette: {
@@ -75,6 +76,7 @@ function App() {
           <Route path='/jobs' element={<JobsPage/>}/>
           <Route path='/job/:jobId' element={<JobViewPage/>}/>
           <Route exact path='/userprofile' element={<UserProfilePage/>}/>
+          <Route exact path='/userportfolio/:slug' element={<UserPortfolioPage/>}/>
         </Route>
         
         {/* for recruiter roles */}
