@@ -87,82 +87,89 @@ export const UserProfilePage = () => {
                                 {/* <span className='gray'>New To Hire N Seeks ?</span> <Link to='/register'>Register</Link> */}
                             </div>
                             <div className='user-profile-fields'>
+                                <div className='aligned-fields'>
                                 <TextField
                                     name="userName"
                                     value={formData.userName}
                                     onChange={formDataDispatch}
                                     label="Username"
-                                    variant="standard"
+                                    variant="outlined"
                                 />
-                                <div className='aligned-fields'>
                                     <TextField 
                                         name="firstName"
                                         value={formData.firstName}
                                         onChange={formDataDispatch}
                                         label="Firstname" 
-                                        variant="standard" 
+                                        variant="outlined" 
                                     />
                                     <TextField 
                                         name="lastName"
                                         value={formData.lastName}
                                         onChange={formDataDispatch}
                                         label="Lastname" 
-                                        variant="standard" 
+                                        variant="outlined" 
                                     />
                                 </div>
-                                <TextField 
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={formDataDispatch}
-                                    label="Email" 
-                                    variant="standard" 
-                                    type="email" 
-                                />
-                                <TextField 
-                                    name="contactNumber"
-                                    value={formData.contactNumber}
-                                    onChange={formDataDispatch}
-                                    label="Contact No" 
-                                    variant="standard" 
-                                    type="number" 
-                                />
+
+                                <div className='aligned-fields'>
+                                    <TextField 
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={formDataDispatch}
+                                        label="Email" 
+                                        variant="outlined" 
+                                        type="email" 
+                                    />
+                                    <TextField 
+                                        name="contactNumber"
+                                        value={formData.contactNumber}
+                                        onChange={formDataDispatch}
+                                        label="Contact No" 
+                                        variant="outlined" 
+                                        type="number" 
+                                    />
+                                </div>
                                 <TextField 
                                     name="address"
                                     value={formData.address}
                                     onChange={formDataDispatch}
                                     label="Address" 
-                                    variant="standard" 
+                                    variant="outlined" 
                                     multiline 
                                 />
+
+                                <div className='aligned-fields'>
+                                    <TextField 
+                                        name="city"
+                                        value={formData.city}
+                                        onChange={formDataDispatch}
+                                        label="City" 
+                                        variant="outlined" 
+                                    />
+                                    <TextField 
+                                        name="country"
+                                        value={formData.country}
+                                        onChange={formDataDispatch}
+                                        label="Country" 
+                                        variant="outlined" 
+                                    />
+                                    <TextField 
+                                        name="dob"
+                                        value={formData.dob}
+                                        onChange={formDataDispatch}
+                                        // label=" " 
+                                        helperText="DOB" 
+                                        variant="outlined" 
+                                        type="date" 
+                                    />
+                                </div>
                                 <TextField 
-                                    name="city"
-                                    value={formData.city}
-                                    onChange={formDataDispatch}
-                                    label="City" 
-                                    variant="standard" 
-                                />
-                                <TextField 
-                                    name="country"
-                                    value={formData.country}
-                                    onChange={formDataDispatch}
-                                    label="Country" 
-                                    variant="standard" 
-                                />
-                                <TextField 
-                                    name="dob"
-                                    value={formData.dob}
-                                    onChange={formDataDispatch}
-                                    label=" " 
-                                    helperText="DOB" 
-                                    variant="standard" 
-                                    type="date" 
-                                />
-                                <TextField 
+                                    rows={3}
                                     name="bio"
                                     value={formData.bio}
                                     onChange={formDataDispatch}
                                     label="Bio" 
-                                    variant="standard" 
+                                    variant="outlined" 
                                     multiline 
                                 />
                                 
@@ -172,7 +179,7 @@ export const UserProfilePage = () => {
                                         value={formData.linkGithub}
                                         onChange={formDataDispatch}
                                         label="Github Profile Link" 
-                                        variant="standard" 
+                                        variant="outlined" 
                                         type="url" 
                                     />
                                     <TextField 
@@ -180,24 +187,24 @@ export const UserProfilePage = () => {
                                         value={formData.linkLinkedIn}
                                         onChange={formDataDispatch}
                                         label="Linkedin Profile Link" 
-                                        variant="standard" 
+                                        variant="outlined" 
                                         type="url" 
                                     />
+                                    <TextField 
+                                        name="linkExtra"
+                                        value={formData.linkExtra}
+                                        onChange={formDataDispatch}
+                                        label="Other / Portfolio Link" 
+                                        variant="outlined" 
+                                        type="url" 
+                                        multiline 
+                                    />
                                 </div>
-                                <TextField 
-                                    name="linkExtra"
-                                    value={formData.linkExtra}
-                                    onChange={formDataDispatch}
-                                    label="Other Portfolio Links" 
-                                    variant="standard" 
-                                    type="url" 
-                                    multiline 
-                                />
 
                                <SkillsInput userSkills = {formData.skills} formDataDispatch={formDataDispatch} error={formErrors.skills} name="skills"/>
 
-                               <Divider/>
-                                <ProjectsInput />
+                               {/* <Divider/>
+                                <ProjectsInput /> */}
                                 
                             </div>
                             <div className='mt-5'>

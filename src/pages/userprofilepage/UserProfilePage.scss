@@ -33,13 +33,17 @@
       font-size: 0.8rem;
     }
     .form-wrapper {
+
       .user-profile-fields {
+        margin-top: 1rem;
         display: flex;
+        gap: 1rem;
         flex-direction: column;
         justify-content: center;
         .aligned-fields {
           gap: 1rem;
           display: flex;
+          flex-wrap: wrap;
           & > * {
             flex: 1;
           }
@@ -70,22 +74,41 @@
 @media screen and (max-width: $md){
   .forms-wrapper{
     
-
+    
     .user-profile-form{
       width: 100%;
       padding: 2rem 2rem;
       .form-wrapper{
         .user-profile-fields {
           .aligned-fields{
-            gap:0rem;
-            flex-direction: column;
+            // flex-direction: column;
           }
-
+          
         }
-
+        
       }
-  
+      
     }
   }
+  
+}
 
+@media screen and (max-width: $sm){
+  .forms-wrapper{
+    
+    
+    .user-profile-form{
+      .form-wrapper{
+        .user-profile-fields {
+          .aligned-fields{
+            flex-direction: column;
+          }
+          
+        }
+        
+      }
+      
+    }
+  }
+ 
 }
