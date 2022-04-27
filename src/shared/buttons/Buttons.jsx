@@ -34,6 +34,7 @@ export const LoginSignupLogoutButton = (props) => {
   return (
     <>
       <Button 
+         style={{textTransform: 'none'}}
         color="inherit"
         endIcon={
         !loggedIn ? null

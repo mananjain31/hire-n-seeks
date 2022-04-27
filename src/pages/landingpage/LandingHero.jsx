@@ -3,8 +3,10 @@ import './LandingHero.scss'
 import bloggingSVG from '../../assets/blogging.svg'
 import { PrimaryButton } from '../../shared/buttons/Buttons'
 import {ArrowRightAlt} from '@mui/icons-material'
+import { useNavigate } from 'react-router-dom'
 
 const LandingHero = () => {
+  const navigate = useNavigate();
   return (
     <section className='landing-hero page-section'>
 
@@ -16,7 +18,7 @@ const LandingHero = () => {
             <h1>HIRE N SEEKS</h1>
             <h2>CAREER STARTER JOBS</h2>
             <div className='join-now-btn'>
-              <PrimaryButton bg="black" color="white">Join Now <ArrowRightAlt/></PrimaryButton>
+              <PrimaryButton onClick={()=>navigate('/register')} bg="black" color="white">Join Now <ArrowRightAlt/></PrimaryButton>
             </div>
         </div>
       </div>

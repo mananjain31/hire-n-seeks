@@ -30,7 +30,7 @@ export const AppliedJobsPage = () => {
         <header>
           <h1 className='text-3xl font-bold'>Jobs Applied By You</h1>
         </header>
-        <FiltersForMobile/>
+        {/* <FiltersForMobile/> */}
         <main>
           
           {/* <div className="desktop-only">

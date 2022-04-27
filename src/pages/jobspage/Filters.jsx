@@ -1,24 +1,37 @@
 import {  Close, Filter1Outlined, Filter6Outlined, FilterList, MenuOutlined } from '@mui/icons-material'
-import {  IconButton, Modal } from '@mui/material'
+import {  IconButton, Modal, TextField } from '@mui/material'
 import React from 'react'
+import SkillsInput from '../userprofilepage/SkillsInput'
 
-const Filters = ({onClose}) => {
+
+
+
+const Filters = ({onClose, filters, filtersDispatch, clearFilters}) => {
+
+  console.log(filters);
   return (
     <div className='bg-purple-rgba px-12 py-6 flex flex-col gap-4 items-start h-fit sticky top-24'>
         <h1 className='text-xl font-bold flex 100 w-full justify-between items-center'>
             Filters 
             <IconButton className='mobile-only' onClick={onClose}> <Close/> </IconButton>   
-          </h1>    
-        <button className="text-blue-800 font-bold">Clear All</button>
+        </h1>    
+        <div className='flex flex-col gap-3'>
+          <TextField name="location" label="Location" variant="outlined" value={filters.location} onChange={filtersDispatch}/>
+          <SkillsInput userSkills = {filters.skills} formDataDispatch={filtersDispatch} name="skills"/>
+        </div>
+
+
+        <button className="text-primary font-bold" onClick={clearFilters}>Clear All</button>
     </div>
   )
 }
 
-export const FiltersForMobile = () => {
 
+export const FiltersForMobile = ({filters, filtersDispatch, clearFilters}) => {
+  
   const [modalOpen, setModalOpen] = React.useState(false);
   const closeModal = () => setModalOpen(false);
-
+  
   return (
     <div className="mobile-only sticky top-24">
       {
@@ -33,7 +46,7 @@ export const FiltersForMobile = () => {
         <Modal open onClose={closeModal} >
           <div className="page-section">
             <div className="bg-purple-100">
-              <Filters onClose = {closeModal}/>
+              <Filters onClose = {closeModal} filters={filters} filtersDispatch={filtersDispatch} clearFilters={clearFilters}/>
             </div>
           </div>
         </Modal>

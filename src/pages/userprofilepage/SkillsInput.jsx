@@ -10,9 +10,10 @@ const SkillsInput = ({ userSkills, formDataDispatch, error, name }) => {
     }
 
     return (
-        <FormControl sx={{ my: 4 }}>
+        <FormControl>
             <InputLabel id="demo-multiple-chip-label">Skills</InputLabel>
             <Select
+                className={`max-w-fit min-w-full`}
                 name={name}
                 labelId="demo-multiple-chip-label"
                 id="demo-multiple-chip"
@@ -21,7 +22,7 @@ const SkillsInput = ({ userSkills, formDataDispatch, error, name }) => {
                 onChange={formDataDispatch}
                 input={<OutlinedInput id="select-multiple-chip" label="SKILLS" multiline />}
                 renderValue={(selected) => (
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }} >
                         {selected.map((value) => (
                             <Chip key={value} label={value} />
                         ))}
