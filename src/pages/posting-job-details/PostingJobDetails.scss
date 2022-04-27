@@ -34,7 +34,9 @@
     }
     .form-wrapper {
       .job-detail-fields {
+        margin-top: 1rem;
         display: flex;
+        gap: 1rem;
         flex-direction: column;
         justify-content: center;
         .aligned-fields {
@@ -54,15 +56,34 @@
 }
 
 @media screen and (max-width: $md){
+.forms-wrapper{
+  
+  
+  .job-detail-form{
+    width: 100%;
+    padding: 2rem 2rem;
+      
+    }
+    
+  }
+}
+
+@media screen and (max-width: $sm){
   .forms-wrapper{
     
-
+    
     .job-detail-form{
-      width: 100%;
-      padding: 2rem 2rem;
+      .form-wrapper{
+        .job-detail-fields {
+          .aligned-fields{
+            flex-direction: column;
+          }
+          
+        }
+        
       }
-  
+      
     }
   }
-
-
+  
+}
