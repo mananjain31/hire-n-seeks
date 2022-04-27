@@ -25,7 +25,7 @@ export const JobViewPage = (props) => {
 
     <section className='page-section jobs-page-section'>    
         <header>
-          <h1 className='text-3xl font-bold'>Jobs for freshers and remote Jobs</h1>
+          <h1 className='text-3xl font-bold'>Job Description</h1>
         </header>
         {/* <FiltersForMobile/> */}
         <main className='flex flex-col gap-1'>
