@@ -72,14 +72,18 @@ export const PostingJobDetails = () => {
                                 {/* <span className='gray'>New To Hire N Seeks ?</span> <Link to='/register'>Register</Link> */}
                             </div>
                             <div className='job-detail-fields'>
-                                <TextField name="title" value={formData.title} onChange={formDataDispatch} label="Title" variant="standard" /> 
+
+                                <div className="aligned-fields">
+                                    <TextField name="title" value={formData.title} onChange={formDataDispatch} label="Title" variant="outlined" /> 
+                                    <TextField name="jobPos" value={formData.jobPos} onChange={formDataDispatch} label="Position" variant="outlined"/>
+                                </div>
+                                <div className="aligned-fields">
+                                    <TextField name="timing" value={formData.timing} onChange={formDataDispatch} label="Working Hours" variant="outlined" type="number"/>
+                                    <TextField name="expLevel" value={formData.expLevel} onChange={formDataDispatch} label="Experience Level" variant="outlined" type="number"/>
+                                    <TextField name="location" value={formData.location} onChange={formDataDispatch} label="Location" variant="outlined"/>
+                                </div>
                                 
-                                <TextField name="jobPos" value={formData.jobPos} onChange={formDataDispatch} label="Position" variant="standard"/>
                                 
-                                <TextField name="timing" value={formData.timing} onChange={formDataDispatch} label="Working Hours" variant="standard" type="number"/>
-                                <TextField name="expLevel" value={formData.expLevel} onChange={formDataDispatch} label="Experience Level" variant="standard" type="number"/>
-                                
-                                <TextField name="location" value={formData.location} onChange={formDataDispatch} label="Location" variant="standard"/>
 
                                 <SkillsInput userSkills = {formData.reqSkill} formDataDispatch={formDataDispatch} error={formErrors.skills} name="reqSkill" />
 
