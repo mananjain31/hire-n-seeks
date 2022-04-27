@@ -67,7 +67,7 @@ export const UserProfilePage = () => {
         ev.preventDefault();
         console.log(formData);
         dispatch(updateData(formData, function successCallback(){
-            navigate("/");
+            navigate("/userportfolio/"+user.userName);
         }))
     }
     console.log(user);
@@ -197,7 +197,6 @@ export const UserProfilePage = () => {
                                         label="Other / Portfolio Link" 
                                         variant="outlined" 
                                         type="url" 
-                                        multiline 
                                     />
                                 </div>
 

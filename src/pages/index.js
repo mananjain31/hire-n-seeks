@@ -7,3 +7,4 @@ export {PostingJobDetails} from './posting-job-details/PostingJobDetails';
 export {PostedJobsPage} from './jobspage/PostedJobsPage'
 export {AppliedJobsPage} from './jobspage/AppliedJobsPage'
 export {JobViewPage} from './jobspage/JobViewPage'
+export {UserPortfolioPage} from './userportfolio/UserPortfolioPage'

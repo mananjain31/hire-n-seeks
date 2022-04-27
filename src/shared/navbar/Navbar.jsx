@@ -21,8 +21,12 @@ const Navbar = ({navData : navigationsData}) => {
               to : '/jobs',
           },
           {
-              label : 'User Profile',
+              label : 'Edit Profile',
               to : '/userprofile',
+          },
+          {
+              label : 'View Portfolio',
+              to : '/userportfolio/'+user.userName,
           }
       ]
   };
