@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { Routes, Route, Link} from 'react-router-dom';
 import './globals/global-styles.scss'
-import {LandingPage, LoginPage,  RegisterPage,  UserProfilePage,PostingJobDetails,JobsPage, PostedJobsPage, AppliedJobsPage, JobViewPage} from './pages'
+import {LandingPage, LoginPage,  RegisterPage,  UserProfilePage,PostingJobDetails,JobsPage, PostedJobsPage, AppliedJobsPage, JobViewPage, ViewApplicationsPage} from './pages'
 import { Alert, Slide, Snackbar } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { alertActions } from "./store/slices/alert-slice";
@@ -83,6 +83,7 @@ function App() {
         <Route element={<RequireAuth forRecruiter/>}>
           <Route exact path='/postingjobdetails' element={<PostingJobDetails/>}/>
           <Route exact path='/postedjobs' element={<PostedJobsPage/>}/>
+          <Route exact path='/viewapplications/:jobId' element={<ViewApplicationsPage/>}/>
         </Route>
 
         {/* for seeker roles */}

@@ -501,6 +501,19 @@ def jobs(request):
     joblist = list(postedJob.objects.values())
     return JsonResponse(joblist, safe=False)
 
+@csrf_exempt
+def jobApplications(request, jobPostID):
+    job = postedJob.objects.get(id=jobPostID)
+    applicants = job.appliedPeople.split(" ")
+    appliList = []
+    for applicant in applicants:
+        try:
+            user = User.objects.get(id=applicant)
+            userDict = userData(user.userName)
+            appliList.append(userDict)
+        except:
+            pass
+    return JsonResponse(appliList, safe=False)
 
 @csrf_exempt
 def job(request, jobPostID):
