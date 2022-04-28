@@ -38,9 +38,9 @@ export const ViewApplicationsPage = () => {
   return (
     <div className='jobs-page'>
     <Navbar />
-      <section className='page-section'>    
-        <header>
-          <h1 className='text-3xl font-bold'>Applications recieved for the Job : {jobId}</h1>
+      <section className='page-section flex flex-col gap-4'>    
+
+          <h1 className='text-3xl font-bold'>Applications recieved for the Job</h1>
             {
               job && <JobCard job={job}/>
             }
@@ -48,20 +48,26 @@ export const ViewApplicationsPage = () => {
               loading && <LinearProgress/>
             }
             {
-              !loading && applications.length === 0 && <h1>No Applications Recieved</h1>
-            }
-            {
-              !loading && applications.length > 0 && 
-              <div className='flex mt-2 gap-4 flex-wrap bg-purple-rgba px-12 py-4'>
+              !loading &&
+              <div className='flex mt-5 gap-4 flex-wrap flex-col items-start bg-purple-rgba px-12 py-4'>
                 {
-                  applications.map(user => 
-                    <Link to={"/userportfolio/"+user.userName} 
+                  applications.length > 0 ?
+                  <>
+                  <h3 className='flex-1'>People who have applied for this job post :</h3>
+                  {
+                    applications.map(user => 
+                      <Link to={"/userportfolio/"+user.userName} 
+                      target={"_blank"}
                       className="cursor-pointer underline text-primary rounded-lg "
-                    >
-                    
-                      {user.userName}
-                    </Link>
-                  )
+                      >
+                      
+                        {user.userName}
+                      </Link>
+                    )
+                  }
+                    </>
+                  :
+                  <h2>No Applications recieved yet...</h2>
                 }
                 </div>
             }
@@ -80,7 +86,6 @@ export const ViewApplicationsPage = () => {
               </div>
             }
           */}
-        </header>
       </section>
     </div>
   )

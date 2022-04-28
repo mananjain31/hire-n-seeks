@@ -13,6 +13,7 @@ export const UserPortfolioPage = () => {
     const user = useSelector(state => state.user);
     const { slug } = useParams();
     const navigate = useNavigate();
+    if ( !user.is_recruiter && slug !== user.userName ) navigate("/jobs");
     const [portfolioUser, setPortfolioUser] = React.useState(null);
     React.useEffect(()=>{
         fetch("/user/"+slug)
@@ -23,6 +24,8 @@ export const UserPortfolioPage = () => {
                     ...data.data,
                     skills: arrayFromString(data.data.skills),
                 });
+            } else {
+                navigate("/jobs");
             }
         })
     }, [])
