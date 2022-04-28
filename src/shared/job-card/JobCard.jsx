@@ -2,7 +2,7 @@ import { ArrowForwardIos, CalendarToday, Category, CoPresent, Error, LocationOn,
 import { Chip } from '@mui/material';
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { applyJob } from '../../store/actions/jobs-actions';
 import getDateString from '../../utils/getDateString';
 
@@ -69,18 +69,37 @@ export const JobCard = ({job}) => {
             {/* <span> <AccessTime/> {timing}</span>  */}
         </div>
         <div className='flex gap-2'>
-          <button 
-            disabled={alreadyApplied}
-            onClick={handleApplyClick}
-            className={
-              `rounded 
-              ${alreadyApplied ? "bg-slate-800" : "bg-primary"} text-white px-3 py-2 
-              ${alreadyApplied ? "hover:bg-slate-500" : "hover:bg-primary-light"}
-              transition-all`
-            } 
-          >
-              {applyBtnLabel}
-          </button>
+
+            {
+              !user.is_recruiter &&
+                <button 
+                  disabled={alreadyApplied}
+                  onClick={handleApplyClick}
+                  className={
+                    `rounded 
+                    ${alreadyApplied ? "bg-slate-800" : "bg-primary"} text-white px-3 py-2 
+                    ${alreadyApplied ? "hover:bg-slate-500" : "hover:bg-primary-light"}
+                    transition-all`
+                  } 
+                  >
+                    {applyBtnLabel}
+                </button>
+            }
+
+            {
+              user.is_recruiter && postedBy === user.userName &&
+                <Link to={"/viewapplications/"+id}
+                  className={
+                    `rounded 
+                    ${alreadyApplied ? "bg-slate-800" : "bg-primary"} text-white px-3 py-2 
+                    ${alreadyApplied ? "hover:bg-slate-500" : "hover:bg-primary-light"}
+                    transition-all`
+                  } 
+                  >
+                    View Applications
+                </Link>
+            }
+
           <button 
             className='rounded text-primary outline px-3 py-2 hover:bg-white transition-all' 
             onClick={()=> navigate('/job/'+id)}

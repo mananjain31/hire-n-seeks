@@ -2,7 +2,7 @@ import { ArrowForwardIos, CalendarToday, Category, CoPresent, Error, LocationOn,
 import { Chip, Divider } from '@mui/material';
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { applyJob } from '../../store/actions/jobs-actions';
 import getDateString from '../../utils/getDateString';
 
@@ -85,10 +85,13 @@ export const JobCardFull = ({job}) => {
         <p>{expLevel} Years</p>
 
         <Divider/>
+        
 
         <h2 className='text-lg text-primary text-left'> Total Applications Recieved: {appliedPeople.length} </h2>
 
-
+        {
+          user.is_recruiter && <Link className='cursor-pointer underline' to={"/viewapplications/"+id}>Click to View Applications</Link>
+        }
 
     </div>  
   )
