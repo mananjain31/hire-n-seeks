@@ -10,7 +10,11 @@ export const loginUser = (formData) => {
 
     const {data, error, status} = await fetcher('/login', {
       method : 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body : JSON.stringify(formData)
+      
     });
 
     if(error) 
@@ -34,6 +38,9 @@ export const registerUser = (formData) => {
 
     const {data, error, status} = await fetcher('/signup', {
       method : 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body : JSON.stringify(formData)
     });
 
