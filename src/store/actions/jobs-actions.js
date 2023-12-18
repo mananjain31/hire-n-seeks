@@ -23,6 +23,7 @@ export const loadJobs = (formData) => {
   }
 }
 export const postJob = (formData, successCallback) => {
+  console.log(formData);
   return async dispatch => {
     dispatch(alertActions.openInfo("Posting Jobs..."));
     const {data, error, status} = await fetcher('/post-for-recruitment', {
@@ -66,4 +67,27 @@ export const applyJob = (jobId, successCallback) => {
 
     return true; 
   }
+
+}
+
+export const deleteJob = (jobId, successCallback) => {
+  console.log('Delete job');
+  return async dispatch => {
+    dispatch(alertActions.openInfo("Deleting this Job..."));
+    const {data, error, status} = await fetcher('/deleteJob/'+jobId);
+    if(error)
+    {
+      if(status === 500) return dispatch(alertActions.openError("Internal Server Error"))
+      dispatch(alertActions.openError(error))
+      return false;
+    }
+    dispatch(loadJobs())
+
+    dispatch(alertActions.openSuccess("Deleted Succesfully"));
+    if ( successCallback ) successCallback();
+
+
+    return true; 
+  }
+
 }

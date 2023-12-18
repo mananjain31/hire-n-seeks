@@ -30,7 +30,7 @@ export const JobCardFull = ({job}) => {
   if(!job.title) return <div className='ml-auto mr-auto'>
     <h1 className='text-2xl text-red-400 font-bold flex items-center gap-2'>
       <Error/>
-      Invalid Job ID
+      Invalid Job ID {job.title}
     </h1>
   </div>
 
@@ -39,7 +39,7 @@ export const JobCardFull = ({job}) => {
     dispatch(applyJob(id));
   }
 
-  const alreadyApplied = appliedPeople.includes(""+user.id);
+  const alreadyApplied = appliedPeople && appliedPeople.includes("" + user.id);
   const applyBtnLabel = !alreadyApplied ? "Apply Now" : "Applied";
 
   let jobPostedDate = getDateString(new Date(jobDate));
@@ -87,7 +87,7 @@ export const JobCardFull = ({job}) => {
         <Divider/>
         
 
-        <h2 className='text-lg text-primary text-left'> Total Applications Recieved: {appliedPeople.length} </h2>
+        <h2 className='text-lg text-primary text-left'> Total Applications Recieved: {appliedPeople && appliedPeople.length > 0 ? appliedPeople.length : '0'} </h2>
 
         {
           user.is_recruiter && <Link className='cursor-pointer underline' to={"/viewapplications/"+id}>Click to View Applications</Link>
