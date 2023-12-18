@@ -38,7 +38,7 @@ export const AppliedJobsPage = () => {
           </div> */}
           <JobCardList jobs={
                 jobs?.jobList.filter(job => {
-                    return job.appliedPeople.includes(""+user.id);
+                  return job.appliedPeople?.includes("" + user.id) || false;
                 }) || []
             }/>
         </main>
