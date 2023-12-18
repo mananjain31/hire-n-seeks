@@ -51,7 +51,7 @@ export const PostingJobDetails = () => {
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    console.log(formData);
+    // console.log(formData);
     dispatch(
       postJob(formData, function successCallback() {
         navigate("/");
@@ -59,7 +59,7 @@ export const PostingJobDetails = () => {
     );
   };
 
-  console.log(formData);
+  // console.log(formData);
   return (
     <div className="posting-job-detail-page">
       <Navbar />

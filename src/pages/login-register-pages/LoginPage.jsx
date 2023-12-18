@@ -36,7 +36,7 @@ export const LoginPage = () => {
   const handleSubmit = ev => {
     ev.preventDefault();
     const {isValid, errors, data} = validateLoginForm(formData);
-    console.log(data);
+    // console.log(data);
     if(!isValid) return setFormErrors(errors);
     setFormErrors({});
     dispatch(loginUser(data));

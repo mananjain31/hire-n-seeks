@@ -65,12 +65,12 @@ export const UserProfilePage = () => {
 
     const handleSubmit = ev => { 
         ev.preventDefault();
-        console.log(formData);
+        // console.log(formData);
         dispatch(updateData(formData, function successCallback(){
             navigate("/userportfolio/"+user.userName);
         }))
     }
-    console.log(user);
+    // console.log(user);
 
 
     return (

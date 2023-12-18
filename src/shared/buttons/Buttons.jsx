@@ -16,7 +16,7 @@ export const LoginSignupLogoutButton = (props) => {
   const buttonText = loggedIn ? userName : 'New User/Login';
   
   const handleLoginOrLogoutClick = () => {    
-    console.log(loggedIn);
+    // console.log(loggedIn);
     if(!loggedIn) navigate('/login')
     else dispatch(logoutUser());
   }

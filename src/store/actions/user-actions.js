@@ -8,6 +8,7 @@ export const loginUser = (formData) => {
     
     dispatch(alertActions.openInfo("Veryfying Login credentials..."));
 
+    // console.log(JSON.stringify(formData));
     const {data, error, status} = await fetcher('/login', {
       method : 'POST',
       headers: {
@@ -51,7 +52,7 @@ export const registerUser = (formData) => {
       return false;
     }
 
-    console.log('Register data : ', data.userData);
+    // console.log('Register data : ', data.userData);
     // dispatch(userActions.login(data.userData));
     dispatch(alertActions.openSuccess("Registered Succesfully"));
 

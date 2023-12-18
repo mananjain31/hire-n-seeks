@@ -6,7 +6,7 @@ const SkillsInput = ({ userSkills, formDataDispatch, error, name }) => {
     // console.log(skills);
     const handleChange = ev => {
         const { name, value } = ev.target;
-        console.log(name, value);
+        // console.log(name, value);
     }
 
     return (

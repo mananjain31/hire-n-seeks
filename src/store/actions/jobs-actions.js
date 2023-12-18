@@ -23,7 +23,7 @@ export const loadJobs = (formData) => {
   }
 }
 export const postJob = (formData, successCallback) => {
-  console.log(formData);
+  // console.log(formData);
   return async dispatch => {
     dispatch(alertActions.openInfo("Posting Jobs..."));
     const {data, error, status} = await fetcher('/post-for-recruitment', {
@@ -71,7 +71,7 @@ export const applyJob = (jobId, successCallback) => {
 }
 
 export const deleteJob = (jobId, successCallback) => {
-  console.log('Delete job');
+  // console.log('Delete job');
   return async dispatch => {
     dispatch(alertActions.openInfo("Deleting this Job..."));
     const {data, error, status} = await fetcher('/deleteJob/'+jobId);

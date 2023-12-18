@@ -8,7 +8,7 @@ import SkillsInput from '../userprofilepage/SkillsInput'
 
 const Filters = ({onClose, filters, filtersDispatch, clearFilters}) => {
 
-  console.log(filters);
+  // console.log(filters);
   return (
     <div className='bg-purple-rgba px-12 py-6 flex flex-col gap-4 items-start h-fit sticky top-24'>
         <h1 className='text-xl font-bold flex 100 w-full justify-between items-center'>

@@ -39,9 +39,9 @@ export const RegisterPage = () => {
 
   const handleSubmit = ev => {
     ev.preventDefault();
-    console.log(formData);
+    // console.log(formData);
     const {isValid, errors, data} = validateRegisterForm(formData);
-    console.log({isValid, errors, data});
+    // console.log({isValid, errors, data});
 
     if(!isValid) return setFormErrors(errors);
     setFormErrors({});  
