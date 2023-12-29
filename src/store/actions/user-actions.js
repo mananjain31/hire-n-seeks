@@ -8,9 +8,14 @@ export const loginUser = (formData) => {
     
     dispatch(alertActions.openInfo("Veryfying Login credentials..."));
 
+    // console.log(JSON.stringify(formData));
     const {data, error, status} = await fetcher('/login', {
       method : 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body : JSON.stringify(formData)
+      
     });
 
     if(error) 
@@ -34,6 +39,9 @@ export const registerUser = (formData) => {
 
     const {data, error, status} = await fetcher('/signup', {
       method : 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body : JSON.stringify(formData)
     });
 
@@ -44,7 +52,7 @@ export const registerUser = (formData) => {
       return false;
     }
 
-    console.log('Register data : ', data.userData);
+    // console.log('Register data : ', data.userData);
     // dispatch(userActions.login(data.userData));
     dispatch(alertActions.openSuccess("Registered Succesfully"));
 

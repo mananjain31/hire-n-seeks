@@ -9,10 +9,13 @@ from django.contrib.auth import authenticate, logout
 # from django.contrib.auth.hashers import make_password, check_password
 # from django.contrib.auth.models import User, auth
 from .models import User, postedJob
+from django.shortcuts import render
 
 # from datetime import timezone
 from django.utils import timezone
 
+def index(request):
+    return render(request, 'index.html')
 
 @csrf_exempt
 def signup(request):

@@ -55,9 +55,9 @@ export const JobsPage = () => {
   const filteredJobs = jobs?.jobList?.filter(job => {
       let returnval = true;
 
-      if(filters.location.length) 
+      if(filters.location && filters.location.length) 
         returnval = returnval && job.location.toLowerCase().includes(filters.location.toLowerCase());
-      if(filters.skills.length) 
+      if(filters.skills && filters.skills.length) 
         returnval = returnval && job.reqSkill.some(skill => filters.skills.includes(skill))
       return returnval;
   }) || [];
